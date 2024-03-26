@@ -32,3 +32,7 @@
 .\objects\main.o: ..\lib\inc\stm32f10x_usart.h
 .\objects\main.o: ..\lib\inc\stm32f10x_wwdg.h
 .\objects\main.o: ..\lib\inc\misc.h
+.\objects\main.o: ..\user\api\led.h
+.\objects\main.o: ..\user\main.h
+.\objects\main.o: ..\user\api\delay.h
+.\objects\main.o: ..\user\api\key.h
