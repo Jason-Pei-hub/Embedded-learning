@@ -6,6 +6,8 @@
 ".\objects\led.o"
 ".\objects\delay.o"
 ".\objects\key.o"
+".\objects\beep.o"
+".\objects\usart1.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_bkp.o"

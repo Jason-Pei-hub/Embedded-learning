@@ -6,6 +6,8 @@
 #include "led.h"
 #include "delay.h"
 #include "key.h"
-
+#include <stdio.h>
+#include "beep.h"
+#include "usart1.h"
 
 #endif

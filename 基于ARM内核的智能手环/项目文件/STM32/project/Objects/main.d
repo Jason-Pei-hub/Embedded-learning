@@ -36,3 +36,6 @@
 .\objects\main.o: ..\user\main.h
 .\objects\main.o: ..\user\api\delay.h
 .\objects\main.o: ..\user\api\key.h
+.\objects\main.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: ..\user\api\beep.h
+.\objects\main.o: ..\user\api\usart1.h
