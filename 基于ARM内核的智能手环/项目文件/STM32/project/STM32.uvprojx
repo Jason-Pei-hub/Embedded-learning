@@ -188,7 +188,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -439,6 +439,46 @@
               <FileName>usart1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\usart1.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\bsp_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\user\api\bsp_font.h</FilePath>
+            </File>
+            <File>
+              <FileName>hz.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\user\api\hz.h</FilePath>
+            </File>
+            <File>
+              <FileName>image1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\image1.c</FilePath>
+            </File>
+            <File>
+              <FileName>22.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\22.c</FilePath>
+            </File>
+            <File>
+              <FileName>yuanshen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\yuanshen.c</FilePath>
+            </File>
+            <File>
+              <FileName>caoshen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\caoshen.c</FilePath>
+            </File>
+            <File>
+              <FileName>yuanshen1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\yuanshen1.c</FilePath>
             </File>
           </Files>
         </Group>

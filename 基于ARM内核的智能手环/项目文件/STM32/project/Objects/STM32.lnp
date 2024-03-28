@@ -8,6 +8,12 @@
 ".\objects\key.o"
 ".\objects\beep.o"
 ".\objects\usart1.o"
+".\objects\bsp_lcd.o"
+".\objects\image1.o"
+".\objects\22.o"
+".\objects\yuanshen.o"
+".\objects\caoshen.o"
+".\objects\yuanshen1.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_bkp.o"
@@ -31,7 +37,7 @@
 ".\objects\stm32f10x_tim.o"
 ".\objects\stm32f10x_usart.o"
 ".\objects\stm32f10x_wwdg.o"
---strict --scatter ".\Objects\STM32.sct"
+--library_type=microlib --strict --scatter ".\Objects\STM32.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\STM32.map" -o .\Objects\STM32.axf

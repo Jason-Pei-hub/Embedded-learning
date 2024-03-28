@@ -1,5 +1,17 @@
 #include "usart1.h"
 
+
+u8 recv;
+void USART1_IRQHandler()
+{
+	//判断是什么中断
+	if(USART_GetITStatus(USART1,USART_IT_RXNE) == 1)
+	{
+	  recv = USART1->DR;
+		USART1->DR = recv;
+	}
+}
+
 void USART1_Config(u32 brr)
 {
 	//step1.初始化IO口 PA9，PA10
@@ -30,6 +42,21 @@ void USART1_Config(u32 brr)
 	USART_Init(USART1,&USART_InitStruct);
 	//4.使能
 	USART_Cmd(USART1,ENABLE);
+	
+	
+	//开启接收中断
+	USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
+	
+	//NVIC
+	NVIC_InitTypeDef NVIC_InitStruct;
+	NVIC_InitStruct.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+	
+	NVIC_Init(&NVIC_InitStruct);
+
+	
 }
 
 
@@ -47,4 +74,11 @@ void USART1_SendStr(char *p)
 	  USART1_SendCh(*p);
 		p++;
 	}
+}
+
+//printf重定向
+int fputc(int d,FILE *f)
+{
+  USART1_SendCh(d);
+	return d;
 }
