@@ -11,6 +11,7 @@
 #include "usart1.h"
 #include <string.h>
 #include "bsp_lcd.h"
-//#include "images.h"
+#include "dht11.h"
+
 
 #endif

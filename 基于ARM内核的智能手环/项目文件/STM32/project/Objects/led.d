@@ -42,3 +42,4 @@
 .\objects\led.o: ..\user\api\usart1.h
 .\objects\led.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\led.o: ..\user\api\bsp_lcd.h
+.\objects\led.o: ..\user\api\dht11.h

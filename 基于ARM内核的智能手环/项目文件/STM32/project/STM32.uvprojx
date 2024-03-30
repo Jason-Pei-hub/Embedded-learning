@@ -461,24 +461,59 @@
               <FilePath>..\user\api\image1.c</FilePath>
             </File>
             <File>
-              <FileName>22.c</FileName>
+              <FileName>dht11.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\22.c</FilePath>
+              <FilePath>..\user\api\dht11.c</FilePath>
             </File>
             <File>
-              <FileName>yuanshen.c</FileName>
+              <FileName>1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\yuanshen.c</FilePath>
+              <FilePath>..\user\api\1.c</FilePath>
             </File>
             <File>
-              <FileName>caoshen.c</FileName>
+              <FileName>2.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\caoshen.c</FilePath>
+              <FilePath>..\user\api\2.c</FilePath>
             </File>
             <File>
-              <FileName>yuanshen1.c</FileName>
+              <FileName>3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\yuanshen1.c</FilePath>
+              <FilePath>..\user\api\3.c</FilePath>
+            </File>
+            <File>
+              <FileName>4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\4.c</FilePath>
+            </File>
+            <File>
+              <FileName>5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\5.c</FilePath>
+            </File>
+            <File>
+              <FileName>6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\6.c</FilePath>
+            </File>
+            <File>
+              <FileName>7.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\7.c</FilePath>
+            </File>
+            <File>
+              <FileName>8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\8.c</FilePath>
+            </File>
+            <File>
+              <FileName>9.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\9.c</FilePath>
+            </File>
+            <File>
+              <FileName>10.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\10.c</FilePath>
             </File>
           </Files>
         </Group>

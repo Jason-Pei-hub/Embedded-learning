@@ -42,3 +42,4 @@
 .\objects\beep.o: ..\user\api\usart1.h
 .\objects\beep.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\beep.o: ..\user\api\bsp_lcd.h
+.\objects\beep.o: ..\user\api\dht11.h

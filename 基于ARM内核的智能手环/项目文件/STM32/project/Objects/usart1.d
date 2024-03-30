@@ -42,3 +42,4 @@
 .\objects\usart1.o: ..\user\api\usart1.h
 .\objects\usart1.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\usart1.o: ..\user\api\bsp_lcd.h
+.\objects\usart1.o: ..\user\api\dht11.h

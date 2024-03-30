@@ -3,6 +3,10 @@
 ---
 
 > 整体介绍
+>
+> 智能手环由 ARM 内核 MCU(Cortex-M 系列)、TFTLCD 屏、温湿度传感器、心率传感器、
+>
+> 加速度传感器等主要几部分构成。该平台硬件采用 STM32 芯片，通过对温湿度传感器的驱动编写，获取周围温湿度数据，并在 LCD 屏显示，通过对心率传感器对人体心率的采集，获取实时心率值，并在 LCD 屏绘制心率曲线图以及心率值，通过对加速度传感器对人体运动数据进行采集，结合计步算法，计算出人所走的步数，并在 LCD 屏显示，同时可以通过 RTC 记录当前时间，并在 LCD 屏显示时间以及电子数字时钟。
 
 
 
@@ -272,6 +276,10 @@ PE2		推挽输出
 
 ![image-20240325165241423](https://gitee.com/jason_pei/typora-bed/raw/master/image/202403251652451.png)
 
+
+
+
+
 ```c
 #include "main.h"  
 
@@ -299,4 +307,27 @@ int main(void)
 	}
 }
 ```
+
+然后输出高低电平即可控制灯的亮灭
+
+```c\
+GPIO_WriteBit(GPIOE,GPIO_Pin_2,Bit_SET);
+```
+
+
+
+那么每次都这样写是不是有点点麻烦
+
+所以我们宏定义一下
+
+
+
+```c
+#define LED1_ON GPIO_WriteBit(GPIOE,GPIO_Pin_2,Bit_RESET)
+#define LED1_OFF GPIO_WriteBit(GPIOE,GPIO_Pin_2,Bit_SET)
+```
+
+
+
+这样我们就可以轻松的控制小灯的亮灭了
 
