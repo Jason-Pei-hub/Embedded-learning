@@ -1,7 +1,7 @@
 #include "usart1.h"
 
 
-u8 recv;
+u8  recv;
 void USART1_IRQHandler()
 {
 	//≈–∂œ « ≤√¥÷–∂œ
