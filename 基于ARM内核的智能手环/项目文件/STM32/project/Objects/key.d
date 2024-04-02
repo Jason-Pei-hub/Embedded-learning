@@ -43,3 +43,8 @@
 .\objects\key.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\key.o: ..\user\api\bsp_lcd.h
 .\objects\key.o: ..\user\api\dht11.h
+.\objects\key.o: ..\user\api\ADC2.h
+.\objects\key.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\key.o: ..\user\api\draw.h
+.\objects\key.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\key.o: ..\user\api\rtc.h

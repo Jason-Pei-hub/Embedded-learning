@@ -44,5 +44,10 @@
 .\objects\bsp_lcd.o: ..\user\api\usart1.h
 .\objects\bsp_lcd.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\bsp_lcd.o: ..\user\api\dht11.h
+.\objects\bsp_lcd.o: ..\user\api\ADC2.h
+.\objects\bsp_lcd.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\bsp_lcd.o: ..\user\api\draw.h
+.\objects\bsp_lcd.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\bsp_lcd.o: ..\user\api\rtc.h
 .\objects\bsp_lcd.o: ..\user\api\hz.h
 .\objects\bsp_lcd.o: .\RTE\_Target_1\RTE_Components.h

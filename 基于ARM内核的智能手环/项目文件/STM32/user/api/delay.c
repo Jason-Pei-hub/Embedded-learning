@@ -3,12 +3,14 @@
 u32 LED1_TIME;
 u8 key_flag_plus;
 u32 DHT11_time;
+u32 RTC_Time;
 
 //滴答定时器的中断函数
 void SysTick_Handler(void)
 {
 	LED1_TIME++;
 	DHT11_time++;
+	RTC_Time++;
 	key_flag_plus = KEY_Check_Plus();
 }
 	

@@ -7,6 +7,7 @@
 extern u32 LED1_TIME;
 extern u8 key_flag_plus;	
 extern u32 DHT11_time;
+extern u32 RTC_Time;
 
 //函数的外部声明
 void Delay_lus(void);

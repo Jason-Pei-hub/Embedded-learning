@@ -43,3 +43,8 @@
 .\objects\usart1.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\usart1.o: ..\user\api\bsp_lcd.h
 .\objects\usart1.o: ..\user\api\dht11.h
+.\objects\usart1.o: ..\user\api\ADC2.h
+.\objects\usart1.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\usart1.o: ..\user\api\draw.h
+.\objects\usart1.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\usart1.o: ..\user\api\rtc.h

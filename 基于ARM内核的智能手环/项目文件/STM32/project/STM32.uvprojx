@@ -466,6 +466,11 @@
               <FilePath>..\user\api\dht11.c</FilePath>
             </File>
             <File>
+              <FileName>ADC2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\ADC2.c</FilePath>
+            </File>
+            <File>
               <FileName>1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\1.c</FilePath>
@@ -486,34 +491,24 @@
               <FilePath>..\user\api\4.c</FilePath>
             </File>
             <File>
-              <FileName>5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\5.c</FilePath>
-            </File>
-            <File>
-              <FileName>6.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\6.c</FilePath>
-            </File>
-            <File>
-              <FileName>7.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\7.c</FilePath>
-            </File>
-            <File>
               <FileName>8.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\8.c</FilePath>
             </File>
             <File>
-              <FileName>9.c</FileName>
+              <FileName>draw.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\9.c</FilePath>
+              <FilePath>..\user\api\draw.c</FilePath>
             </File>
             <File>
-              <FileName>10.c</FileName>
+              <FileName>rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\user\api\10.c</FilePath>
+              <FilePath>..\user\api\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>watch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\watch.c</FilePath>
             </File>
           </Files>
         </Group>

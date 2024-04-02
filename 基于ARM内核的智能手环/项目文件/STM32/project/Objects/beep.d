@@ -43,3 +43,8 @@
 .\objects\beep.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\beep.o: ..\user\api\bsp_lcd.h
 .\objects\beep.o: ..\user\api\dht11.h
+.\objects\beep.o: ..\user\api\ADC2.h
+.\objects\beep.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\beep.o: ..\user\api\draw.h
+.\objects\beep.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\beep.o: ..\user\api\rtc.h

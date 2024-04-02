@@ -2,8 +2,11 @@
 #include "bsp_font.h"
 #include "delay.h"
 #include "hz.h"
+
+void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r);	
+
 //LCD的画笔颜色和背景色
-uint16_t POINT_COLOR=0x0000;	//画笔颜色
+uint16_t POINT_COLOR=0xFFFF;	//画笔颜色
 uint16_t BACK_COLOR=0xFFFF;  //背景色0xFFFF
 
 #include "RTE_Components.h"             // Component selection
@@ -2699,7 +2702,7 @@ void LCD_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t col
 //画线
 //x1,y1:起点坐标
 //x2,y2:终点坐标
-void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
+void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
 {
   uint16_t t;
   int xerr=0,yerr=0,delta_x,delta_y,distance;
@@ -2719,6 +2722,7 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
   for(t=0;t<=distance+1;t++ )//画线输出
   {
     LCD_DrawPoint(uRow,uCol);//画点
+		LCD_Draw_Circle(uRow, uCol,r); // 在当前点画圆
     xerr+=delta_x ;
     yerr+=delta_y ;
     if(xerr>distance)
@@ -2735,13 +2739,13 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 }
 //画矩形
 //(x1,y1),(x2,y2):矩形的对角坐标
-void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
-{
-  LCD_DrawLine(x1,y1,x2,y1);
-  LCD_DrawLine(x1,y1,x1,y2);
-  LCD_DrawLine(x1,y2,x2,y2);
-  LCD_DrawLine(x2,y1,x2,y2);
-}
+//void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
+//{
+//  LCD_DrawLine(x1,y1,x2,y1);
+//  LCD_DrawLine(x1,y1,x1,y2);
+//  LCD_DrawLine(x1,y2,x2,y2);
+//  LCD_DrawLine(x2,y1,x2,y2);
+//}
 //在指定位置画一个指定大小的圆
 //(x,y):中心点
 //r    :半径
@@ -3072,3 +3076,32 @@ void LCD_ShowStringAndHz(u16 x,u16 y,u16 width,u16 height,u8 size,u8 *p,u8 mode,
 
 
 
+
+
+
+// 显示图片，将白色像素视为透明
+// x, y: 起点坐标
+// width, height: 区域大小
+// *p: 图片起始地址
+void LCD_ShowPictureWithTransparent(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *p) {
+    uint16_t i = 0, j = 0, x0 = x;
+    uint16_t pcolor = 0;
+
+    for (j = 0; j < height; j++) {
+        for (i = 0; i < width; i++) {
+            pcolor = (*p << 8) | (*(p + 1));
+            
+            // 如果当前像素不是白色，则绘制该像素
+            if (pcolor != 0xFFFF) { // 假设白色的颜色为 0xFFFF
+                LCD_Fast_DrawPoint(x, y, pcolor);
+            }
+
+            x++;
+            if (x >= x0 + width) {
+                x = x0;
+                y++;
+            }
+            p += 2;
+        }
+    }
+}

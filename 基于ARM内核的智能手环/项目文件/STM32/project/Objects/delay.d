@@ -43,3 +43,8 @@
 .\objects\delay.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\delay.o: ..\user\api\bsp_lcd.h
 .\objects\delay.o: ..\user\api\dht11.h
+.\objects\delay.o: ..\user\api\ADC2.h
+.\objects\delay.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\delay.o: ..\user\api\draw.h
+.\objects\delay.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\delay.o: ..\user\api\rtc.h

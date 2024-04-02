@@ -1,12 +1,12 @@
 /**
   ******************************************************************************
-  * @file    SPI/SPI_FLASH/stm32f10x_it.c 
+  * @file    RTC/Calendar/stm32f10x_it.c 
   * @author  MCD Application Team
   * @version V3.5.0
   * @date    08-April-2011
   * @brief   Main Interrupt Service Routines.
-  *          This file provides template for all exceptions handler and peripherals
-  *          interrupt service routine.
+  *          This file provides template for all exceptions handler and
+  *          peripherals interrupt service routine.
   ******************************************************************************
   * @attention
   *
@@ -19,16 +19,17 @@
   *
   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "stm32_eval.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
 
-/** @addtogroup SPI_FLASH
+/** @addtogroup RTC_Calendar
   * @{
   */ 
 
@@ -36,6 +37,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+extern __IO uint32_t TimeDisplay;
+
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
@@ -106,7 +109,8 @@ void UsageFault_Handler(void)
   * @retval None
   */
 void DebugMon_Handler(void)
-{}
+{
+}
 
 /**
   * @brief  This function handles SVCall exception.
@@ -114,7 +118,8 @@ void DebugMon_Handler(void)
   * @retval None
   */
 void SVC_Handler(void)
-{}
+{
+}
 
 /**
   * @brief  This function handles PendSV_Handler exception.
@@ -122,7 +127,8 @@ void SVC_Handler(void)
   * @retval None
   */
 void PendSV_Handler(void)
-{}
+{
+}
 
 /**
   * @brief  This function handles SysTick Handler.
@@ -130,7 +136,36 @@ void PendSV_Handler(void)
   * @retval None
   */
 void SysTick_Handler(void)
-{}
+{
+}
+
+/******************************************************************************/
+/*            STM32F10x Peripherals Interrupt Handlers                        */
+/******************************************************************************/
+
+/**
+  * @brief  This function handles RTC global interrupt request.
+  * @param  None
+  * @retval None
+  */
+void RTC_IRQHandler(void)
+{
+  if (RTC_GetITStatus(RTC_IT_SEC) != RESET)
+  {
+    /* Clear the RTC Second interrupt */
+    RTC_ClearITPendingBit(RTC_IT_SEC);
+
+    /* Toggle LED1 */
+    STM_EVAL_LEDToggle(LED1);
+
+    /* Enable time update */
+    TimeDisplay = 1;
+
+    /* Wait until last write operation on RTC registers has finished */
+    RTC_WaitForLastTask();
+    
+  }
+}
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */

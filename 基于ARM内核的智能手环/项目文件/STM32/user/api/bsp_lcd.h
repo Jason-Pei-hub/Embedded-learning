@@ -68,7 +68,8 @@ typedef struct
 #define YELLOW        	 0xFFE0
 #define BROWN 			 0XBC40 //棕色
 #define BRRED 			 0XFC07 //棕红色
-#define GRAY  			 0X8430 //灰色
+#define GRAY  			 0X8430 //灰色 
+
 //GUI颜色
 
 #define DARKBLUE      	 0X01CF	//深蓝色
@@ -83,6 +84,8 @@ typedef struct
 #define LGRAYBLUE        0XA651 //浅灰蓝色(中间层颜色)
 #define LBBLUE           0X2B12 //浅棕蓝色(选择条目的反色)
 
+#define M_PI 3.14159265358979323846
+
 void TFTLCD_Init(void);													   	//初始化
 void LCD_DisplayOn(void);													//开显示
 void LCD_DisplayOff(void);													//关显示
@@ -93,7 +96,7 @@ void LCD_DrawPoint(uint16_t x,uint16_t y);											//画点
 void LCD_Fast_DrawPoint(uint16_t x,uint16_t y,uint16_t color);								//快速画点
 uint16_t  LCD_ReadPoint(uint16_t x,uint16_t y); 											//读点
 void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r);						 			//画圆
-void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);							//画线
+void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r);							//画线
 void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);		   				//画矩形
 void LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);		   				//填充单色
 void LCD_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);				//填充指定颜色
@@ -104,6 +107,7 @@ void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t
 void LCD_ShowPicture(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t *p);
 void LCD_ShowxXx(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint16_t b_color,uint16_t f_color,uint8_t *p);
 
+void LCD_ShowPictureWithTransparent(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *p);
 
 
 void LCD_WR_REG(volatile uint16_t regval);

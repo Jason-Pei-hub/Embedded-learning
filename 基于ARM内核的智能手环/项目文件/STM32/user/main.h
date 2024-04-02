@@ -12,6 +12,10 @@
 #include <string.h>
 #include "bsp_lcd.h"
 #include "dht11.h"
-
+#include "ADC2.h"
+#include <math.h>
+#include "draw.h"
+#include <time.h>
+#include "rtc.h"
 
 #endif

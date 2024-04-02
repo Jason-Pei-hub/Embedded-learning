@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    SPI/SPI_FLASH/system_stm32f10x.c
+  * @file    RTC/Calendar/system_stm32f10x.c
   * @author  MCD Application Team
   * @version V3.5.0
   * @date    08-April-2011
