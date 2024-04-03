@@ -40,7 +40,6 @@ void ADC2_Config()
 	ADC_StartCalibration(ADC2);
 	while(ADC_GetCalibrationStatus(ADC2) == 1)//等待校准成功
 	{}
-  
 }
 
 u16 illu;

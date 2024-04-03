@@ -48,3 +48,7 @@
 .\objects\delay.o: ..\user\api\draw.h
 .\objects\delay.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\objects\delay.o: ..\user\api\rtc.h
+.\objects\delay.o: ..\user\api\xinlv.h
+.\objects\delay.o: ..\user\api\biaopan1.h
+.\objects\delay.o: ..\user\api\mpu6050.h
+.\objects\delay.o: ..\user\api\StepCount.h

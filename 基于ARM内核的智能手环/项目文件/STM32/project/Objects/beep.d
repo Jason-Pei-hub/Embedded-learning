@@ -48,3 +48,7 @@
 .\objects\beep.o: ..\user\api\draw.h
 .\objects\beep.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\objects\beep.o: ..\user\api\rtc.h
+.\objects\beep.o: ..\user\api\xinlv.h
+.\objects\beep.o: ..\user\api\biaopan1.h
+.\objects\beep.o: ..\user\api\mpu6050.h
+.\objects\beep.o: ..\user\api\StepCount.h

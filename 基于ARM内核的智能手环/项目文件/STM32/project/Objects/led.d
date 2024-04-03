@@ -48,3 +48,7 @@
 .\objects\led.o: ..\user\api\draw.h
 .\objects\led.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\objects\led.o: ..\user\api\rtc.h
+.\objects\led.o: ..\user\api\xinlv.h
+.\objects\led.o: ..\user\api\biaopan1.h
+.\objects\led.o: ..\user\api\mpu6050.h
+.\objects\led.o: ..\user\api\StepCount.h

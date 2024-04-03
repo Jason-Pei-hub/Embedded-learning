@@ -471,31 +471,6 @@
               <FilePath>..\user\api\ADC2.c</FilePath>
             </File>
             <File>
-              <FileName>1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\1.c</FilePath>
-            </File>
-            <File>
-              <FileName>2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\2.c</FilePath>
-            </File>
-            <File>
-              <FileName>3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\3.c</FilePath>
-            </File>
-            <File>
-              <FileName>4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\4.c</FilePath>
-            </File>
-            <File>
-              <FileName>8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\8.c</FilePath>
-            </File>
-            <File>
               <FileName>draw.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\draw.c</FilePath>
@@ -509,6 +484,36 @@
               <FileName>watch.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\watch.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>xinlv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\xinlv.c</FilePath>
+            </File>
+            <File>
+              <FileName>biaopan1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\biaopan1.c</FilePath>
+            </File>
+            <File>
+              <FileName>StepCount.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\StepCount.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>

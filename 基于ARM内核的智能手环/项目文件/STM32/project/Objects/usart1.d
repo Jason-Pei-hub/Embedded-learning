@@ -48,3 +48,7 @@
 .\objects\usart1.o: ..\user\api\draw.h
 .\objects\usart1.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\objects\usart1.o: ..\user\api\rtc.h
+.\objects\usart1.o: ..\user\api\xinlv.h
+.\objects\usart1.o: ..\user\api\biaopan1.h
+.\objects\usart1.o: ..\user\api\mpu6050.h
+.\objects\usart1.o: ..\user\api\StepCount.h

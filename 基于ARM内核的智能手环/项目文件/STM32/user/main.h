@@ -17,5 +17,13 @@
 #include "draw.h"
 #include <time.h>
 #include "rtc.h"
+#include "xinlv.h"
+#include "biaopan1.h"
+#include "mpu6050.h"
+#include "StepCount.h"
+
+extern const unsigned char gImage_watch[153600];
+
+
 
 #endif

@@ -47,3 +47,7 @@
 .\objects\main.o: ..\user\api\draw.h
 .\objects\main.o: D:\apps\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\objects\main.o: ..\user\api\rtc.h
+.\objects\main.o: ..\user\api\xinlv.h
+.\objects\main.o: ..\user\api\biaopan1.h
+.\objects\main.o: ..\user\api\mpu6050.h
+.\objects\main.o: ..\user\api\StepCount.h
