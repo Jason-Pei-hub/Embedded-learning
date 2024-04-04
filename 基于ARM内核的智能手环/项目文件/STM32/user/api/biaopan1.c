@@ -66,7 +66,7 @@ void showbiaopan(int hour,int min)
 		LCD_DrawLine((uint16_t)hx3,(uint16_t)hy3,(uint16_t)hx4,(uint16_t)hy4,1);
 
 		//«Â∆¡
-    Delay_ms(900);
+    //Delay_ms(900);
 		LCD_ShowPicture(0,0,240,320,(u8*)gImage_watch);
 		
 		now_time.tm_min -= min;

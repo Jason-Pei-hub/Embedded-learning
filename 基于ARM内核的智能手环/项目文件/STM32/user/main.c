@@ -1,5 +1,51 @@
 #include "main.h"  
 
+#define BreatheMax 280
+void BreatheLed(void)
+{
+	static unsigned char B_Reverse= 0;
+	static int Low_Time = 0;
+	static int tem = 0;
+
+	if(!B_Reverse)   //渐亮
+	{
+		tem++;					//该变量会从0~BreatheMax循环，代表PWM的周期
+		if(tem > BreatheMax)
+		{
+			tem = 0;
+			Low_Time++;  				//每BreatheMax * 10us自加1
+			if(Low_Time >= BreatheMax) //限制加到BreatheMax之后跳到渐灭
+			{
+				B_Reverse = 1;	
+			}
+		}	
+	}
+	else		//渐灭
+	{
+		tem++;
+		if(tem > BreatheMax)
+		{
+			tem = 0;
+			Low_Time--;		 //每BreatheMax * 10us自减1
+			if(Low_Time < 0) //限制减到0之后回到渐亮
+			{
+				B_Reverse = 0;
+			}
+		}	
+	}
+	/*
+	以渐亮为例：
+		函数是10us周期性调用
+						tem：	从0~BreatheMax循环递增
+		BreatheMax - Low_Time ：随着 Low_Time 的增加，因为BreatheMax是固定的，所以BreatheMax - Low_Time会减少
+		例如： Low_Time = 60；BreatheMax - Low_Time = 220，
+			则下列语句执行的效果就是：有220 * 10us 的时间语句条件不成立，执行 (LED0 = 1)
+									   60*10us  的时间语句条件成立，	 执行 (LED0 = 0)
+			灯是低电平点亮，由于高电平时间比低电平多，所以呈现灯较暗的现象，反之则亮
+	*/
+	(tem > BreatheMax - Low_Time)?LED2_OFF:LED2_ON; //如果？前条件成立，执行(LED0 = 0)，否则执行(LED0 = 1)
+}
+
 
 
 int main(void)
@@ -8,8 +54,8 @@ int main(void)
 	
 	LED_Config();
 	
-	Sensor_Init();
-	RGB_Config();
+	//Sensor_Init();
+	//RGB_Config();
 	KET_Config();
 	//BEEP_Config();
   //TFTLCD_Init();
@@ -29,7 +75,7 @@ int main(void)
 //	u8 buf[24] = {0};
 	
 
-  //showbiaopan_init();
+// showbiaopan_init();
   u32 time = 0;
 	
 	int i = 0;
@@ -41,11 +87,11 @@ int main(void)
 
 	while(1)
 	{
-		
+		BreatheLed();
 		time = RTC_GetCounter();
     now_time = *localtime(&time);
 		
-		//showbiaopan(22,17);
+	//	showbiaopan(22,17);
 		
 		
 		//任务1 状态指示灯
