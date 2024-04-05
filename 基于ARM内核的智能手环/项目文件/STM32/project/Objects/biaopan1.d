@@ -52,3 +52,4 @@
 .\objects\biaopan1.o: ..\user\api\biaopan1.h
 .\objects\biaopan1.o: ..\user\api\mpu6050.h
 .\objects\biaopan1.o: ..\user\api\StepCount.h
+.\objects\biaopan1.o: ..\user\api\daiji1.h

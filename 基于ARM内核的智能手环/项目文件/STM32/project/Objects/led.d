@@ -52,3 +52,4 @@
 .\objects\led.o: ..\user\api\biaopan1.h
 .\objects\led.o: ..\user\api\mpu6050.h
 .\objects\led.o: ..\user\api\StepCount.h
+.\objects\led.o: ..\user\api\daiji1.h

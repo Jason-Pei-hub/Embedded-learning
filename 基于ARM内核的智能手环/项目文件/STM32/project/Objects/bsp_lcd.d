@@ -53,5 +53,6 @@
 .\objects\bsp_lcd.o: ..\user\api\biaopan1.h
 .\objects\bsp_lcd.o: ..\user\api\mpu6050.h
 .\objects\bsp_lcd.o: ..\user\api\StepCount.h
+.\objects\bsp_lcd.o: ..\user\api\daiji1.h
 .\objects\bsp_lcd.o: ..\user\api\hz.h
 .\objects\bsp_lcd.o: .\RTE\_Target_1\RTE_Components.h

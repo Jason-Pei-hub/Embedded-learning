@@ -456,11 +456,6 @@
               <FilePath>..\user\api\hz.h</FilePath>
             </File>
             <File>
-              <FileName>image1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\image1.c</FilePath>
-            </File>
-            <File>
               <FileName>dht11.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\dht11.c</FilePath>
@@ -479,11 +474,6 @@
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\rtc.c</FilePath>
-            </File>
-            <File>
-              <FileName>watch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\api\watch.c</FilePath>
             </File>
             <File>
               <FileName>adc.c</FileName>
@@ -514,6 +504,26 @@
               <FileName>mpu6050.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\api\mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>daiji.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\daiji.c</FilePath>
+            </File>
+            <File>
+              <FileName>daiji1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\daiji1.c</FilePath>
+            </File>
+            <File>
+              <FileName>yemian1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\yemian1.c</FilePath>
+            </File>
+            <File>
+              <FileName>zhuye.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\zhuye.c</FilePath>
             </File>
           </Files>
         </Group>

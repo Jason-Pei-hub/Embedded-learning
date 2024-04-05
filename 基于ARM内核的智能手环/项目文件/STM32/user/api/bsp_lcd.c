@@ -3,11 +3,11 @@
 #include "delay.h"
 #include "hz.h"
 
-void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r);	
+void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r,uint16_t color);	
 
 //LCD的画笔颜色和背景色
-uint16_t POINT_COLOR=0xFFFF;	//画笔颜色
-uint16_t BACK_COLOR=0xFFFF;  //背景色0xFFFF
+uint16_t POINT_COLOR=0xFF;	//画笔颜色
+uint16_t BACK_COLOR=0x0000;  //背景色0xFFFF
 
 #include "RTE_Components.h"             // Component selection
 //管理LCD重要参数
@@ -2722,7 +2722,7 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
   for(t=0;t<=distance+1;t++ )//画线输出
   {
     LCD_DrawPoint(uRow,uCol);//画点
-		LCD_Draw_Circle(uRow, uCol,r); // 在当前点画圆
+		LCD_Draw_Circle(uRow, uCol,r,0xFFFF); // 在当前点画圆
     xerr+=delta_x ;
     yerr+=delta_y ;
     if(xerr>distance)
@@ -2749,7 +2749,7 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
 //在指定位置画一个指定大小的圆
 //(x,y):中心点
 //r    :半径
-void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r)
+void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r,uint16_t color)
 {
   int a,b;
   int di;
@@ -2757,14 +2757,14 @@ void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r)
   di=3-(r<<1);             //判断下个点位置的标志
   while(a<=b)
   {
-    LCD_DrawPoint(x0+a,y0-b);             //5
-    LCD_DrawPoint(x0+b,y0-a);             //0
-    LCD_DrawPoint(x0+b,y0+a);             //4
-    LCD_DrawPoint(x0+a,y0+b);             //6
-    LCD_DrawPoint(x0-a,y0+b);             //1
-    LCD_DrawPoint(x0-b,y0+a);
-    LCD_DrawPoint(x0-a,y0-b);             //2
-    LCD_DrawPoint(x0-b,y0-a);             //7
+    LCD_Fast_DrawPoint(x0+a,y0-b,color);             //5
+    LCD_Fast_DrawPoint(x0+b,y0-a,color);             //0
+    LCD_Fast_DrawPoint(x0+b,y0+a,color);             //4
+    LCD_Fast_DrawPoint(x0+a,y0+b,color);             //6
+    LCD_Fast_DrawPoint(x0-a,y0+b,color);             //1
+    LCD_Fast_DrawPoint(x0-b,y0+a,color);
+    LCD_Fast_DrawPoint(x0-a,y0-b,color);             //2
+    LCD_Fast_DrawPoint(x0-b,y0-a,color);             //7
     a++;
     //使用Bresenham算法画圆
     if(di<0)di +=4*a+6;
@@ -2864,13 +2864,13 @@ void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,ui
     {
       if(temp==0)
       {
-        if(mode&0X80)LCD_ShowChar(x+(size/2)*t,y,WHITE,BLACK,'0',size,mode&0X01);
-        else LCD_ShowChar(x+(size/2)*t,y,WHITE,BLACK,' ',size,mode&0X01);
+        if(mode&0X80)LCD_ShowChar(x+(size/2)*t,y,BLACK,WHITE,'0',size,mode&0X01);
+        else LCD_ShowChar(x+(size/2)*t,y,BLACK,WHITE,' ',size,mode&0X01);
         continue;
       }else enshow=1;
 
     }
-    LCD_ShowChar(x+(size/2)*t,y,WHITE,BLACK,temp+'0',size,mode&0X01);
+    LCD_ShowChar(x+(size/2)*t,y,BLACK,WHITE,temp+'0',size,mode&0X01);
   }
 }
 //显示字符串
@@ -2887,7 +2887,7 @@ void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t
   {
     if(x>=width){x=x0;y+=size;}
     if(y>=height)break;//退出
-    LCD_ShowChar(x,y,WHITE,color,*p,size,0);
+    LCD_ShowChar(x,y,BLACK,color,*p,size,0);
     x+=size/2;
     p++;
   }

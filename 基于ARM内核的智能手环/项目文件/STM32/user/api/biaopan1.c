@@ -1,17 +1,9 @@
 #include "biaopan1.h"
 
-void showbiaopan_init()
-{
-  	
-		
-  //初始化表盘
-	LCD_ShowPicture(0,0,240,320,(u8*)gImage_watch);
-
-
-}
 
 void showbiaopan(int hour,int min)
 {
+	  	
     int sx1 = 0;
     int sx2 = 0;
     int sy1 = 0;
@@ -41,10 +33,28 @@ void showbiaopan(int hour,int min)
     int hx4 = 0;
     int hy3 = 0;
     int hy4 = 0;
-
-    now_time.tm_min += min;
+		
+		
+		u32 time = 0;
+    
+		
+		while(1)
+		{
+			BreatheLed();
+		  if(dj>=90000)
+		{
+			
+		dj = 0;
+    LCD_ShowPicture(0,0,240,320,(u8*)gImage_daiji);
+			
+		
+		time = RTC_GetCounter();
+    now_time = *localtime(&time);
+		
+	  now_time.tm_min += min;
     now_time.tm_hour += hour;
-	
+		
+			
 	  //秒针
 		get_points_on_concentric_circles(120, 160,0,20,now_time.tm_sec%60+30, &sx3, &sy3, &sx4, &sy4);
 		LCD_DrawLine((uint16_t)sx3,(uint16_t)sy3,(uint16_t)sx4,(uint16_t)sy4,0);
@@ -65,10 +75,14 @@ void showbiaopan(int hour,int min)
     LCD_DrawLine((uint16_t)hx1,(uint16_t)hy1,(uint16_t)hx2,(uint16_t)hy2,3);
 		LCD_DrawLine((uint16_t)hx3,(uint16_t)hy3,(uint16_t)hx4,(uint16_t)hy4,1);
 
-		//清屏
-    //Delay_ms(900);
-		LCD_ShowPicture(0,0,240,320,(u8*)gImage_watch);
 		
-		now_time.tm_min -= min;
-    now_time.tm_hour -= hour;
+		
+		
+		}
+		}
+		
+			
+		
+
+    
 }

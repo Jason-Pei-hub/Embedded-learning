@@ -7,8 +7,6 @@
 
 //函数的外部声明
 
-
-void showbiaopan_init();
 void showbiaopan(int hour,int min);
 
 extern int sx1;

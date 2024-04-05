@@ -52,3 +52,4 @@
 .\objects\usart1.o: ..\user\api\biaopan1.h
 .\objects\usart1.o: ..\user\api\mpu6050.h
 .\objects\usart1.o: ..\user\api\StepCount.h
+.\objects\usart1.o: ..\user\api\daiji1.h

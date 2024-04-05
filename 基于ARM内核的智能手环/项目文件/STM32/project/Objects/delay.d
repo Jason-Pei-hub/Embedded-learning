@@ -52,3 +52,4 @@
 .\objects\delay.o: ..\user\api\biaopan1.h
 .\objects\delay.o: ..\user\api\mpu6050.h
 .\objects\delay.o: ..\user\api\StepCount.h
+.\objects\delay.o: ..\user\api\daiji1.h

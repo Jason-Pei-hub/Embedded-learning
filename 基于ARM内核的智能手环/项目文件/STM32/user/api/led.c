@@ -36,5 +36,9 @@ void RGB_Config(void)
 	
 	//step3.³õÊ¼»¯IO¿Ú
 	GPIO_Init(GPIOA,&GPIO_InitSTRUCT);
+	
+	LEDR_OFF;
+	LEDG_OFF;
+	LEDB_OFF;
 
 }

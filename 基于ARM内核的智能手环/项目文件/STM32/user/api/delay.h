@@ -14,8 +14,8 @@ extern u32 liushui_time;
 extern u32 huxi_time;
 extern u32 on_time;
 extern u32 off_time;
-
-
+extern u32 dj;
+extern u32 zy;
 //函数的外部声明
 void Delay_lus(void);
 void Delay_us(uint32_t time);

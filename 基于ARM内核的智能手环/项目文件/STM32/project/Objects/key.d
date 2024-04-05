@@ -52,3 +52,4 @@
 .\objects\key.o: ..\user\api\biaopan1.h
 .\objects\key.o: ..\user\api\mpu6050.h
 .\objects\key.o: ..\user\api\StepCount.h
+.\objects\key.o: ..\user\api\daiji1.h

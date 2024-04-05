@@ -1,6 +1,11 @@
 #include "main.h"  
 
 #define BreatheMax 280
+#define HOUR 17
+#define MIN 55
+#define CHOUR 17
+#define CMIN 56
+
 void BreatheLed(void)
 {
 	static unsigned char B_Reverse= 0;
@@ -33,16 +38,7 @@ void BreatheLed(void)
 			}
 		}	
 	}
-	/*
-	以渐亮为例：
-		函数是10us周期性调用
-						tem：	从0~BreatheMax循环递增
-		BreatheMax - Low_Time ：随着 Low_Time 的增加，因为BreatheMax是固定的，所以BreatheMax - Low_Time会减少
-		例如： Low_Time = 60；BreatheMax - Low_Time = 220，
-			则下列语句执行的效果就是：有220 * 10us 的时间语句条件不成立，执行 (LED0 = 1)
-									   60*10us  的时间语句条件成立，	 执行 (LED0 = 0)
-			灯是低电平点亮，由于高电平时间比低电平多，所以呈现灯较暗的现象，反之则亮
-	*/
+
 	(tem > BreatheMax - Low_Time)?LED2_OFF:LED2_ON; //如果？前条件成立，执行(LED0 = 0)，否则执行(LED0 = 1)
 }
 
@@ -55,11 +51,11 @@ int main(void)
 	LED_Config();
 	
 	//Sensor_Init();
-	//RGB_Config();
-	KET_Config();
-	//BEEP_Config();
-  //TFTLCD_Init();
-	ADC2_Config();
+	RGB_Config();
+	//KET_Config();
+	BEEP_Config();
+  TFTLCD_Init();
+	//ADC2_Config();
 	RTC_Configuration();
   USART1_Config(115200);
 	
@@ -73,26 +69,21 @@ int main(void)
 	
 	
 //	u8 buf[24] = {0};
-	
 
-// showbiaopan_init();
-  u32 time = 0;
+
+
+
 	
-	int i = 0;
-  int p = 0;
-	int q = 0;
-	
-	
-	
+	DaiJi();
 
 	while(1)
 	{
+		
+		
 		BreatheLed();
-		time = RTC_GetCounter();
-    now_time = *localtime(&time);
 		
-	//	showbiaopan(22,17);
-		
+		showbiaopan(HOUR,MIN);
+		//showyemian1(HOUR,MIN,CHOUR,CMIN);
 		
 		//任务1 状态指示灯
 		if(LED1_TIME >= 50000)
@@ -114,52 +105,7 @@ int main(void)
 
 		
 		
-		if(on_time >= i&&p == 0&&q == 0)
-		{
-		  LED3_ON;
-			on_time = 0;
-			off_time = 0;
-			p = 1;
-			
-		}
-		
-		if(off_time >= 1000-i&&p == 1&&q == 0)
-		{
-			
-		  LED3_OFF;
-			off_time = 0;
-			on_time = 0;
-			p = 0;
-			if(i>=1000)
-			{
-			  i = 0;
-				q = 1;
-			}
-		  i++;
-		}
-		
-		if(on_time >= i&&p == 0&&q == 1)
-		{
-		  LED3_OFF;
-			on_time = 0;
-			off_time = 0;
-			p = 1;
-			
-		}
-		
-		if(off_time >= 1000-i&&p == 1&&q == 1)
-		{
-			i++;
-		  LED3_ON;
-			off_time = 0;
-			on_time = 0;
-			p = 0;
-			if(i>=1000)
-		  {
-			  i = 0;
-				q = 0;
-			}
-		}
+	
 		
 //		
 //    LED4_ON;

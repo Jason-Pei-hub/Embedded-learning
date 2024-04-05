@@ -52,5 +52,6 @@
 .\objects\xinlv.o: ..\user\api\biaopan1.h
 .\objects\xinlv.o: ..\user\api\mpu6050.h
 .\objects\xinlv.o: ..\user\api\StepCount.h
+.\objects\xinlv.o: ..\user\api\daiji1.h
 .\objects\xinlv.o: ..\user\api\timer.h
 .\objects\xinlv.o: ..\user\api\adc.h

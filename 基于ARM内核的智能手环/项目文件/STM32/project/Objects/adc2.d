@@ -52,3 +52,4 @@
 .\objects\adc2.o: ..\user\api\biaopan1.h
 .\objects\adc2.o: ..\user\api\mpu6050.h
 .\objects\adc2.o: ..\user\api\StepCount.h
+.\objects\adc2.o: ..\user\api\daiji1.h

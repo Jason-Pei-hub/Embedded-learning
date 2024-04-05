@@ -1,6 +1,7 @@
 //防止头文件重复展开
 #ifndef __MAIN_H
 #define __MAIN_H
+#define BreatheMax 280
 
 #include "stm32f10x.h"   
 #include "led.h"
@@ -21,9 +22,11 @@
 #include "biaopan1.h"
 #include "mpu6050.h"
 #include "StepCount.h"
+#include "daiji1.h"  
 
-extern const unsigned char gImage_watch[153600];
+extern const unsigned char gImage_daiji[153600];
+extern const unsigned char gImage_zhuye[153600];
 
-
+void BreatheLed(void);
 
 #endif

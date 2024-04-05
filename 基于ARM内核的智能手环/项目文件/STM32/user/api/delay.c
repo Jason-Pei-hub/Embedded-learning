@@ -10,6 +10,8 @@ u32 liushui_time;
 u32 huxi_time;
 u32 on_time;
 u32 off_time;
+u32 dj;
+u32 zy;
 
 //滴答定时器的中断函数
 void SysTick_Handler(void)
@@ -22,6 +24,8 @@ void SysTick_Handler(void)
 	on_time++;
 	off_time++;
 	huxi_time++;
+	zy++;
+	dj++;
 	key_flag_plus = KEY_Check_Plus();
 }
 	

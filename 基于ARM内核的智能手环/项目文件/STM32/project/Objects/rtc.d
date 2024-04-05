@@ -52,3 +52,4 @@
 .\objects\rtc.o: ..\user\api\biaopan1.h
 .\objects\rtc.o: ..\user\api\mpu6050.h
 .\objects\rtc.o: ..\user\api\StepCount.h
+.\objects\rtc.o: ..\user\api\daiji1.h

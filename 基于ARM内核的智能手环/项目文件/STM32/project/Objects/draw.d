@@ -52,3 +52,4 @@
 .\objects\draw.o: ..\user\api\biaopan1.h
 .\objects\draw.o: ..\user\api\mpu6050.h
 .\objects\draw.o: ..\user\api\StepCount.h
+.\objects\draw.o: ..\user\api\daiji1.h
