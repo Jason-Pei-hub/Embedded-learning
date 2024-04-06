@@ -12,7 +12,7 @@ u32 on_time;
 u32 off_time;
 u32 dj;
 u32 zy;
-
+u32 MPU6050_Time2;
 //滴答定时器的中断函数
 void SysTick_Handler(void)
 {
@@ -26,6 +26,7 @@ void SysTick_Handler(void)
 	huxi_time++;
 	zy++;
 	dj++;
+	MPU6050_Time2++;
 	key_flag_plus = KEY_Check_Plus();
 }
 	

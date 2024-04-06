@@ -1,4 +1,10 @@
 #include "biaopan1.h"
+#define BreatheMax 280
+#define HOUR 17
+#define MIN 55
+#define CHOUR 17
+#define CMIN 56
+#define TSTEP 100
 
 
 void showbiaopan(int hour,int min)
@@ -36,10 +42,25 @@ void showbiaopan(int hour,int min)
 		
 		
 		u32 time = 0;
-    
+ 
 		
 		while(1)
 		{
+			switch(KEY_Check())
+			{
+			  case 1:
+					showyemian1(HOUR,MIN,CHOUR,CMIN);
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(TSTEP);
+				case 4:
+					showyemian4();
+					
+					
+			}
+				
+				
 			BreatheLed();
 		  if(dj>=90000)
 		{

@@ -43,16 +43,24 @@ void ADC2_Config()
 }
 
 u16 illu;
-void ADC2_GetValue()
+u16 mq;
+void ADC2_GetValue(void)
 {
-  //配置ADC通道
+	//配置ADC通道
 	ADC_RegularChannelConfig(ADC2,ADC_Channel_5,1,ADC_SampleTime_55Cycles5);
-  //开始转换
+	
+	//开始转换
 	ADC_SoftwareStartConvCmd(ADC2,ENABLE);
-	//等待开启成功
 	while(ADC_GetFlagStatus(ADC2,ADC_FLAG_EOC) == 0)
-	{};
+	{}
 	illu = ADC_GetConversionValue(ADC2);
-	printf("%d\r\n",illu);
-  //DMA
+		printf("illu=%d\r\n",illu);
+		//配置ADC通道
+	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_55Cycles5);
+		//开始转换
+	ADC_SoftwareStartConvCmd(ADC2,ENABLE);
+		while(ADC_GetFlagStatus(ADC2,ADC_FLAG_EOC) == 0)
+	{}
+	mq = ADC_GetConversionValue(ADC2);
+		printf("mq=%d\r\n",mq);
 }

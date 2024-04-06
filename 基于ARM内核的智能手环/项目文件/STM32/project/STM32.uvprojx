@@ -525,6 +525,21 @@
               <FileType>1</FileType>
               <FilePath>..\user\api\zhuye.c</FilePath>
             </File>
+            <File>
+              <FileName>ymxl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\ymxl.c</FilePath>
+            </File>
+            <File>
+              <FileName>ymyd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\ymyd.c</FilePath>
+            </File>
+            <File>
+              <FileName>ymwd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\api\ymwd.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

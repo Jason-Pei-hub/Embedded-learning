@@ -5,7 +5,7 @@
 #include "main.h"   
 
 //函数的外部声明
-void KET_Config();
+void KEY_Config();
 uint8_t KEY_Check(void);
 
 #endif

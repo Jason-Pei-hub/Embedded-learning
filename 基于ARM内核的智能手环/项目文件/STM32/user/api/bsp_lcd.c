@@ -327,6 +327,27 @@ void LCD_DrawPoint(uint16_t x,uint16_t y)
   LCD_WriteRAM_Prepare();	//开始写入GRAM
   TFTLCD->LCD_RAM=POINT_COLOR;
 }
+
+//画点
+//x,y:坐标
+//POINT_COLOR:此点的颜色
+void LCD_DrawPoint1(uint16_t x,uint16_t y)
+{
+  LCD_SetCursor(x,y);		//设置光标位置
+  LCD_WriteRAM_Prepare();	//开始写入GRAM
+  TFTLCD->LCD_RAM=RED;
+}
+
+//画点
+//x,y:坐标
+//POINT_COLOR:此点的颜色
+void LCD_DrawPoint2(uint16_t x,uint16_t y)
+{
+  LCD_SetCursor(x,y);		//设置光标位置
+  LCD_WriteRAM_Prepare();	//开始写入GRAM
+  TFTLCD->LCD_RAM=BLACK;
+}
+
 //快速画点
 //x,y:坐标
 //color:颜色
@@ -2737,6 +2758,151 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
     }
   }
 }
+
+void LCD_DrawLine3(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
+{
+  uint16_t t;
+  int xerr=0,yerr=0,delta_x,delta_y,distance;
+  int incx,incy,uRow,uCol;
+  delta_x=x2-x1; //计算坐标增量
+  delta_y=y2-y1;
+  uRow=x1;
+  uCol=y1;
+  if(delta_x>0)incx=1; //设置单步方向
+  else if(delta_x==0)incx=0;//垂直线
+  else {incx=-1;delta_x=-delta_x;}
+  if(delta_y>0)incy=1;
+  else if(delta_y==0)incy=0;//水平线
+  else{incy=-1;delta_y=-delta_y;}
+  if( delta_x>delta_y)distance=delta_x; //选取基本增量坐标轴
+  else distance=delta_y;
+  for(t=0;t<=distance+1;t++ )//画线输出
+  {
+    LCD_DrawPoint(uRow,uCol);//画点
+		LCD_Draw_Circle(uRow, uCol,r,0x52AA); // 在当前点画圆
+    xerr+=delta_x ;
+    yerr+=delta_y ;
+    if(xerr>distance)
+    {
+      xerr-=distance;
+      uRow+=incx;
+    }
+    if(yerr>distance)
+    {
+      yerr-=distance;
+      uCol+=incy;
+    }
+  }
+}
+
+void LCD_DrawLine4(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r)
+{
+  uint16_t t;
+  int xerr=0,yerr=0,delta_x,delta_y,distance;
+  int incx,incy,uRow,uCol;
+  delta_x=x2-x1; //计算坐标增量
+  delta_y=y2-y1;
+  uRow=x1;
+  uCol=y1;
+  if(delta_x>0)incx=1; //设置单步方向
+  else if(delta_x==0)incx=0;//垂直线
+  else {incx=-1;delta_x=-delta_x;}
+  if(delta_y>0)incy=1;
+  else if(delta_y==0)incy=0;//水平线
+  else{incy=-1;delta_y=-delta_y;}
+  if( delta_x>delta_y)distance=delta_x; //选取基本增量坐标轴
+  else distance=delta_y;
+  for(t=0;t<=distance+1;t++ )//画线输出
+  {
+    LCD_DrawPoint(uRow,uCol);//画点
+		LCD_Draw_Circle(uRow, uCol,r,0xFC89); // 在当前点画圆
+    xerr+=delta_x ;
+    yerr+=delta_y ;
+    if(xerr>distance)
+    {
+      xerr-=distance;
+      uRow+=incx;
+    }
+    if(yerr>distance)
+    {
+      yerr-=distance;
+      uCol+=incy;
+    }
+  }
+}
+
+void LCD_DrawLine1(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
+{
+  uint16_t t;
+  int xerr=0,yerr=0,delta_x,delta_y,distance;
+  int incx,incy,uRow,uCol;
+  delta_x=x2-x1; //计算坐标增量
+  delta_y=y2-y1;
+  uRow=x1;
+  uCol=y1;
+  if(delta_x>0)incx=1; //设置单步方向
+  else if(delta_x==0)incx=0;//垂直线
+  else {incx=-1;delta_x=-delta_x;}
+  if(delta_y>0)incy=1;
+  else if(delta_y==0)incy=0;//水平线
+  else{incy=-1;delta_y=-delta_y;}
+  if( delta_x>delta_y)distance=delta_x; //选取基本增量坐标轴
+  else distance=delta_y;
+  for(t=0;t<=distance+1;t++ )//画线输出
+  {
+    LCD_DrawPoint1(uRow,uCol);//画点
+		
+    xerr+=delta_x ;
+    yerr+=delta_y ;
+    if(xerr>distance)
+    {
+      xerr-=distance;
+      uRow+=incx;
+    }
+    if(yerr>distance)
+    {
+      yerr-=distance;
+      uCol+=incy;
+    }
+  }
+}
+
+void LCD_DrawLine2(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
+{
+  uint16_t t;
+  int xerr=0,yerr=0,delta_x,delta_y,distance;
+  int incx,incy,uRow,uCol;
+  delta_x=x2-x1; //计算坐标增量
+  delta_y=y2-y1;
+  uRow=x1;
+  uCol=y1;
+  if(delta_x>0)incx=1; //设置单步方向
+  else if(delta_x==0)incx=0;//垂直线
+  else {incx=-1;delta_x=-delta_x;}
+  if(delta_y>0)incy=1;
+  else if(delta_y==0)incy=0;//水平线
+  else{incy=-1;delta_y=-delta_y;}
+  if( delta_x>delta_y)distance=delta_x; //选取基本增量坐标轴
+  else distance=delta_y;
+  for(t=0;t<=distance+1;t++ )//画线输出
+  {
+    LCD_DrawPoint2(uRow,uCol);//画点
+		
+    xerr+=delta_x ;
+    yerr+=delta_y ;
+    if(xerr>distance)
+    {
+      xerr-=distance;
+      uRow+=incx;
+    }
+    if(yerr>distance)
+    {
+      yerr-=distance;
+      uCol+=incy;
+    }
+  }
+}
+
 //画矩形
 //(x1,y1),(x2,y2):矩形的对角坐标
 //void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)

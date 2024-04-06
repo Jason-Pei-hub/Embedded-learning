@@ -66,8 +66,8 @@ I (..\lib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
-F (..\user\main.c)(0x66100A7D)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\main.c)(0x661166AD)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -100,15 +100,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -120,7 +120,7 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\led.c)(0x660FBE1C)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -152,15 +152,15 @@ I (..\lib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -170,9 +170,9 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-F (..\user\api\delay.c)(0x660FBE1C)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\api\delay.c)(0x661160A9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -205,14 +205,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -222,9 +222,9 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-F (..\user\api\key.c)(0x66028AB9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
-I (..\user\api\key.h)(0x66028AB7)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\api\key.c)(0x661166AD)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (..\user\api\key.h)(0x66111107)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -257,14 +257,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
+I (..\user\api\delay.h)(0x66112EF8)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -276,7 +276,7 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\beep.c)(0x66038E6E)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
 I (..\user\api\beep.h)(0x660392FD)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -309,14 +309,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -328,7 +328,7 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\usart1.c)(0x660828BF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart1.o --omf_browse .\objects\usart1.crf --depend .\objects\usart1.d)
 I (..\user\api\usart1.h)(0x66052B5E)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -361,14 +361,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -378,8 +378,8 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-F (..\user\api\bsp_lcd.c)(0x660FD5A9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_lcd.o --omf_browse .\objects\bsp_lcd.crf --depend .\objects\bsp_lcd.d)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
+F (..\user\api\bsp_lcd.c)(0x66112E3D)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_lcd.o --omf_browse .\objects\bsp_lcd.crf --depend .\objects\bsp_lcd.d)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -412,16 +412,16 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\bsp_font.h)(0x6281F38E)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\main.h)(0x66115615)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -431,13 +431,13 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-I (..\user\api\hz.h)(0x660FD529)
+I (..\user\api\hz.h)(0x66116797)
 I (.\RTE\_Target_1\RTE_Components.h)(0x660008DA)
 F (..\user\api\bsp_font.h)(0x6281F38E)()
-F (..\user\api\hz.h)(0x660FD529)()
-F (..\user\api\dht11.c)(0x6606711F)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\dht11.o --omf_browse .\objects\dht11.crf --depend .\objects\dht11.d)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\api\hz.h)(0x66116797)()
+F (..\user\api\dht11.c)(0x661160A9)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\dht11.o --omf_browse .\objects\dht11.crf --depend .\objects\dht11.d)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -470,14 +470,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -487,9 +487,9 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-F (..\user\api\ADC2.c)(0x660D60FA)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\adc2.o --omf_browse .\objects\adc2.crf --depend .\objects\adc2.d)
-I (..\user\api\ADC2.h)(0x660A5B5D)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\api\ADC2.c)(0x6611514F)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\adc2.o --omf_browse .\objects\adc2.crf --depend .\objects\adc2.d)
+I (..\user\api\ADC2.h)(0x661151DC)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -522,14 +522,14 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -541,7 +541,7 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\draw.c)(0x660BAF9F)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\draw.o --omf_browse .\objects\draw.crf --depend .\objects\draw.d)
 I (..\user\api\draw.h)(0x660B61E2)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -574,15 +574,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
 I (..\user\api\rtc.h)(0x660B6E20)
@@ -593,7 +593,7 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\rtc.c)(0x660B6E21)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\rtc.o --omf_browse .\objects\rtc.crf --depend .\objects\rtc.d)
 I (..\user\api\rtc.h)(0x660B6E20)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -626,15 +626,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -710,16 +710,16 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\main.h)(0x660FAF3B)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\main.h)(0x66115615)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -729,7 +729,7 @@ I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-F (..\user\api\xinlv.c)(0x660CB224)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\xinlv.o --omf_browse .\objects\xinlv.crf --depend .\objects\xinlv.d)
+F (..\user\api\xinlv.c)(0x6611284F)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\xinlv.o --omf_browse .\objects\xinlv.crf --depend .\objects\xinlv.d)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -762,17 +762,17 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\xinlv.h)(0x660CB0B2)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -783,9 +783,9 @@ I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 I (..\user\api\timer.h)(0x646C27E6)
 I (..\user\api\adc.h)(0x646C27E4)
-F (..\user\api\biaopan1.c)(0x660FD7DF)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\biaopan1.o --omf_browse .\objects\biaopan1.crf --depend .\objects\biaopan1.d)
+F (..\user\api\biaopan1.c)(0x66116797)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\biaopan1.o --omf_browse .\objects\biaopan1.crf --depend .\objects\biaopan1.d)
 I (..\user\api\biaopan1.h)(0x660FAFD4)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -818,15 +818,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -901,17 +901,17 @@ I (..\lib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\main.h)(0x66115615)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -923,7 +923,7 @@ I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\daiji.c)(0x660F87B2)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\daiji.o --omf_browse .\objects\daiji.crf --depend .\objects\daiji.d)
 F (..\user\api\daiji1.c)(0x660FAB3C)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\daiji1.o --omf_browse .\objects\daiji1.crf --depend .\objects\daiji1.d)
 I (..\user\api\daiji1.h)(0x660FA2E8)
-I (..\user\main.h)(0x660FAF3B)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -956,15 +956,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -973,9 +973,9 @@ I (..\user\api\xinlv.h)(0x660CB0B2)
 I (..\user\api\biaopan1.h)(0x660FAFD4)
 I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
-F (..\user\api\yemian1.c)(0x66100A7D)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\yemian1.o --omf_browse .\objects\yemian1.crf --depend .\objects\yemian1.d)
-I (..\user\api\yemian1.h)(0x660FA760)
-I (..\user\main.h)(0x660FAF3B)
+F (..\user\api\yemian1.c)(0x661161BE)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\yemian1.o --omf_browse .\objects\yemian1.crf --depend .\objects\yemian1.d)
+I (..\user\api\yemian1.h)(0x6611514F)
+I (..\user\main.h)(0x66115615)
 I (..\user\stm32f10x.h)(0x5EB672D6)
 I (D:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D2590B6)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -1008,15 +1008,15 @@ I (..\lib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\lib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\api\led.h)(0x660D5BD3)
-I (..\user\api\delay.h)(0x660FBE1C)
-I (..\user\api\key.h)(0x66028AB7)
+I (..\user\api\delay.h)(0x66112EF8)
+I (..\user\api\key.h)(0x66111107)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (..\user\api\beep.h)(0x660392FD)
 I (..\user\api\usart1.h)(0x66052B5E)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (..\user\api\bsp_lcd.h)(0x660F8D52)
-I (..\user\api\dht11.h)(0x660665D3)
-I (..\user\api\ADC2.h)(0x660A5B5D)
+I (..\user\api\bsp_lcd.h)(0x66112E46)
+I (..\user\api\dht11.h)(0x66115E24)
+I (..\user\api\ADC2.h)(0x661151DC)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 I (..\user\api\draw.h)(0x660B61E2)
 I (D:\apps\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
@@ -1027,6 +1027,9 @@ I (..\user\api\mpu6050.h)(0x660CCE3B)
 I (..\user\api\StepCount.h)(0x6498447A)
 I (..\user\api\daiji1.h)(0x660FA2E8)
 F (..\user\api\zhuye.c)(0x660FA8D7)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\zhuye.o --omf_browse .\objects\zhuye.crf --depend .\objects\zhuye.d)
+F (..\user\api\ymxl.c)(0x66111341)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ymxl.o --omf_browse .\objects\ymxl.crf --depend .\objects\ymxl.d)
+F (..\user\api\ymyd.c)(0x66112970)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ymyd.o --omf_browse .\objects\ymyd.crf --depend .\objects\ymyd.d)
+F (..\user\api\ymwd.c)(0x6611509E)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ymwd.o --omf_browse .\objects\ymwd.crf --depend .\objects\ymwd.d)
 F (..\lib\src\misc.c)(0x4D783BB4)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lib\inc -I ..\user -I ..\user\api-I.\RTE\_Target_1-ID:\apps\Keil_v5\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-ID:\apps\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\misc.o --omf_browse .\objects\misc.crf --depend .\objects\misc.d)
 I (..\lib\inc\misc.h)(0x4D783BB4)
 I (..\user\stm32f10x.h)(0x5EB672D6)

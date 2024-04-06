@@ -1,6 +1,7 @@
 #include "key.h"
+#define check_count 5
 
-void KET_Config()
+void KEY_Config()
 {
 	//KEY1 --paPA0
 	//KEY2 --paPC5
@@ -23,19 +24,49 @@ void KET_Config()
 	GPIO_Init(GPIOC,&GPIO_InitSTRUCT);
 }
 
-//°´¼ü¼ì²â
+
 uint8_t KEY_Check(void)
 {
-	//°´¼ü¼ì²â
-		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
-		{
-			Delay_ms(15);
-			if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
-			{
-				while(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
-				{}
-				return 1;
-			}
-		}
-		return 0;
+    static uint8_t key_status[4] = {1, 1, 1, 1}; 
+		static uint8_t key_count[4] = {0};
+    uint8_t i;
+    uint8_t key_press[4] = {0};
+
+    // ¼ì²â°´¼ü×´Ì¬±ä»¯
+    for (i = 0; i < 4; i++)
+    {
+        switch (i)
+        {
+        case 0:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
+            break;
+        case 1:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_4);
+            break;
+        case 2:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_5);
+            break;
+        case 3:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_6);
+            break;
+        }
+
+       
+        if (key_press[i] != key_status[i])
+        {
+             key_count[i]++;
+					if(key_count >=(u8 *) check_count)
+					{
+            key_status[i] = key_press[i];
+						key_count[i] =0;
+					}
+               
+            if (key_press[i] == 0)
+            {
+                return i + 1; 
+            }
+        }
+    }
+
+    return 0; 
 }

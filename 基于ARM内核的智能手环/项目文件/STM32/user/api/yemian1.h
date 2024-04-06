@@ -3,7 +3,9 @@
 
 #include "main.h"
 
-void yemian1(void);
-
+void showyemian1();
+void showyemian2();
+void showyemian3(int n);
+void showyemian4();
 
 #endif

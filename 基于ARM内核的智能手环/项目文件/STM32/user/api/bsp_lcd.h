@@ -97,6 +97,7 @@ void LCD_Fast_DrawPoint(uint16_t x,uint16_t y,uint16_t color);								//快速�
 uint16_t  LCD_ReadPoint(uint16_t x,uint16_t y); 											//读点
 void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r,uint16_t color);						 			//画圆
 void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r);							//画线
+void LCD_DrawLine3(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r);							//画线
 void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);		   				//画矩形
 void LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);		   				//填充单色
 void LCD_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);				//填充指定颜色
@@ -106,10 +107,13 @@ void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,ui
 void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t size,uint8_t *p,u16 color);		//显示一个字符串,12/16字体
 void LCD_ShowPicture(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t *p);
 void LCD_ShowxXx(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint16_t b_color,uint16_t f_color,uint8_t *p);
-
+void LCD_DrawPoint1(uint16_t x,uint16_t y);
 void LCD_ShowPictureWithTransparent(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *p);
-
-
+void LCD_DrawLine1(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
+void LCD_DrawLine2(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
+void LCD_DrawPoint2(uint16_t x,uint16_t y);
+void LCD_DrawLine4(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t r);
+	
 void LCD_WR_REG(volatile uint16_t regval);
 void LCD_WR_DATA(volatile uint16_t data);
 uint16_t LCD_RD_DATA(void);
