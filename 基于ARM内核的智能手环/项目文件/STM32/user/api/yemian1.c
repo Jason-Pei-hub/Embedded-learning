@@ -1,7 +1,15 @@
 #include "yemian1.h"
+#define BreatheMax 280
+#define HOUR 16
+#define MIN 50
+#define CHOUR 17
+#define CMIN 50
+#define TSTEP 100
 
 void showyemian1(int hour,int min,int chour,int cmin)
 {
+	qinmingwei=0;
+	LCD_Clear(0X00);
 	u32 time = 0;
 	char timestr[20];
 	char daystr[20];
@@ -16,7 +24,7 @@ void showyemian1(int hour,int min,int chour,int cmin)
 	now_time.tm_min += min;
   now_time.tm_hour += hour;
 	
-	sprintf(timestr, "%d:%d", now_time.tm_hour, now_time.tm_min);
+	sprintf(timestr, "%d:%d", now_time.tm_hour%24, now_time.tm_min%60);
 	sprintf(daystr, "%d-%d-%d", now_time.tm_year+1954, now_time.tm_mon+4,now_time.tm_mday+6);
 	sprintf(cstr, "%d:%d",chour, cmin);
 	
@@ -31,6 +39,22 @@ void showyemian1(int hour,int min,int chour,int cmin)
 
 	while(1)
 	{
+		if(qinmingwei>=20000)
+		{
+		  
+			showbiaopan(HOUR,MIN);
+		}
+switch(KEY_Check())
+			{
+				
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(100);
+				case 4:
+					showyemian4();
+				
+			}
 		if(!strcmp(timestr,cstr)&&flag==0)
 		{
 		while(1)
@@ -38,7 +62,7 @@ void showyemian1(int hour,int min,int chour,int cmin)
 		  BEEP_ON;
 		  Delay_ms(100);
 			BEEP_OFF;
-			if(KEY_Check())
+			if(KEY_Check()==2)
 			{
 			  flag = 1;
 				break;
@@ -46,7 +70,7 @@ void showyemian1(int hour,int min,int chour,int cmin)
 		}
 		}
 		BreatheLed();
-	  if(zy >= 10000)
+	  if(zy >= 60000)
 	{
 		 zy = 0;
 		 flag = 0;
@@ -59,19 +83,12 @@ void showyemian1(int hour,int min,int chour,int cmin)
 		
 		 LCD_ShowStringAndHz(160,65,1000,40,24,(u8*)timestr,0,WHITE);
 		
-		 LEDB_ON;
-		
-		
 		DHT11_time = 0;
 		DHT11_GetValue();
 		sprintf(buf,"%d°C",(int)dht11.tem);
 		printf("%d\r\n",(int)dht11.tem);
 		LCD_ShowStringAndHz(180,100,1000,20,16,buf,0,WHITE);
-		
-		
-		
 
-		
 	}
 	}
 	
@@ -81,17 +98,44 @@ void showyemian1(int hour,int min,int chour,int cmin)
 
 void showyemian2()
 {
-   LCD_ShowPicture(0,0,240,320,(u8*)gImage_ymxl);
-   LCD_ShowString(21,262,56,16,16,(u8*)"BPM:",WHITE);
-	 LCD_ShowString(21,282,56,16,16,(u8*)"IBI:",WHITE);
+  qinmingwei=0;
+	LCD_Clear(0X00);
+	//if(KEY_Check()==3)
+				//showyemian3(TSTEP);
+   LCD_ShowPicture(90,210,32,32,(u8*)gImage_ymxl);
+	 LCD_ShowStringAndHz(24,24,50,16,16,"正在检测：",0,WHITE);
+	LCD_ShowStringAndHz(20,175,50,24,24,"心率",0,WHITE);
+   LCD_ShowString(21,242,56,16,16,(u8*)"BPM:",WHITE);
+	 LCD_ShowString(21,262,56,16,16,(u8*)"IBI:",WHITE);
 	while(1)
 	{
+		if(qinmingwei>=20000)
+		{
+		  
+			showbiaopan(HOUR,MIN);
+		}
+    switch(KEY_Check())
+			{
+				case 1:
+					showyemian1(HOUR,MIN,CHOUR,CMIN);
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(100);
+				case 4:
+					showyemian4();
+				
+			}
 		BreatheLed();
 	  if(XINLV_Time >= 100)
 		{
 		   XINLV_Time = 0;
 			 Sensor();
 		}
+		if(BPM>50&&BPM<100)
+					LCD_ShowStringAndHz(21,292,300,16,16,"您的心率健康请继续保持！",0,RED);	
+				else	
+					LCD_ShowStringAndHz(21,292,300,16,16,"您的心率异常请及时注意！",0,RED);
 	}
 		
 
@@ -99,12 +143,33 @@ void showyemian2()
 
 void showyemian3(int n)
 {
+    qinmingwei=0;
+	  LCD_Clear(0X00);
 	  u8 arr[20];
 	  LCD_ShowxNum(27,105,0,6,24,0);
-    LCD_ShowPicture(0,0,240,320,(u8*)gImage_ymyd);
+    LCD_ShowPicture(24,40,80,147,(u8*)gImage_ymyd);
   	LCD_DrawLine3(32,144,214,144,5);
     while(1)
 		{
+			if(qinmingwei>=20000)
+		{
+		  
+			showbiaopan(HOUR,MIN);
+		}
+				switch(KEY_Check())
+			{
+				case 1:
+					showyemian1(HOUR,MIN,CHOUR,CMIN);
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(100);
+				case 4:
+					showyemian4();
+				
+			}
+      //if(KEY_Check()==4)
+				//showyemian4();
 		  BreatheLed();
 			if(MPU6050_Time >= 10)
 		{
@@ -133,7 +198,7 @@ void showyemian3(int n)
 				
 			}else
 			{
-			  LCD_ShowString(30,235,50,16,16,"Finish",0xFC89);
+			  LCD_ShowStringAndHz(30,235,200,16,16,"您已完成目标！",0,0xFC89);
 				LCD_DrawLine4(32,144,214,144,5);
 			}
 		
@@ -142,13 +207,35 @@ void showyemian3(int n)
 		}
 }
 
-void showyemian4(int n)
+void showyemian4()
 {
+	
+	qinmingwei=0;
+	LCD_Clear(0X00);
   LCD_ShowPicture(0,0,240,320,(u8*)gImage_ymwd);
 	u8 buf[24] = {0};
 	u8 buf1[24] = {0};
 	while(1)
 	{
+		
+		if(qinmingwei>=20000)
+		{
+		  
+			showbiaopan(HOUR,MIN);
+		}
+		switch(KEY_Check())
+			{
+				case 1:
+					showyemian1(HOUR,MIN,CHOUR,CMIN);
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(100);
+				case 4:
+					showyemian4();
+				
+			}
+			
     BreatheLed();
 		
 		if(DHT11_time >= 200)
@@ -164,7 +251,31 @@ void showyemian4(int n)
 			ADC2_GetValue();
 		  LCD_ShowxNum(30,197,illu,4,16,0);
 			LCD_ShowxNum(32,279,mq,3,16,0);
-
+			
+			if(dht11.tem > 25)
+				LCD_ShowStringAndHz(24,100,72,12,12,"体感温度炎热",0,0xFC89);
+			else if(dht11.tem < 10)	
+        LCD_ShowStringAndHz(24,100,72,12,12,"体感温度寒冷",0,0xFC89);
+			else
+				LCD_ShowStringAndHz(24,100,72,12,12,"体感温度舒适",0,0xFC89);
+			
+			if(dht11.hum > 80)
+				LCD_ShowStringAndHz(96,100,60,12,12,"，湿度过高",0,0xFC89);
+			else if(dht11.hum < 40)	
+        LCD_ShowStringAndHz(96,100,60,12,12,"，湿度过低",0,0xFC89);
+			else
+				LCD_ShowStringAndHz(96,100,60,12,12,"，湿度适中",0,0xFC89);
+			
+			if(illu < 3000)	
+        LCD_ShowStringAndHz(156,100,60,12,12,"，光照过强",0,0xFC89);
+			else
+				LCD_ShowStringAndHz(156,100,60,12,12,"，光照适中",0,0xFC89);
+			
+			if(mq > 100)	
+        LCD_ShowStringAndHz(24,116,84,12,12,"，烟雾浓度过高",0,0xFC89);
+			else
+				LCD_ShowStringAndHz(24,116,84,12,12,"，烟雾浓度正常",0,0xFC89);
+			
 		}
 		 
 

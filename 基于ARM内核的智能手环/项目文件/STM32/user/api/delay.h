@@ -17,6 +17,7 @@ extern u32 off_time;
 extern u32 dj;
 extern u32 zy;
 extern u32 MPU6050_Time2;
+extern u32 qinmingwei;
 //函数的外部声明
 void Delay_lus(void);
 void Delay_us(uint32_t time);

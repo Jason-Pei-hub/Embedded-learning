@@ -13,9 +13,11 @@ u32 off_time;
 u32 dj;
 u32 zy;
 u32 MPU6050_Time2;
+u32 qinmingwei;
 //滴答定时器的中断函数
 void SysTick_Handler(void)
 {
+	qinmingwei++;
 	LED1_TIME++;
 	DHT11_time++;
 	RTC_Time++;

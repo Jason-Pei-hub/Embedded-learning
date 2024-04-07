@@ -23,17 +23,14 @@ void Sensor_Init(void)
 		printf("Signal=%d\r\n",Signal);
 		if (QS == true)
 		{		
-				LCD_ShowxNum(60,262,BPM,3,16,0);
+				LCD_ShowxNum(60,242,BPM,3,16,0);
 				
-				LCD_ShowxNum(60,282,IBI,3,16,0);
+				LCD_ShowxNum(60,262,IBI,3,16,0);
 				
 				QS = false; // reset the Quantified Self flag for next time
 					
 				//对BPM值进行范围划分
-				if(BPM>50&&BPM<100)
-					LCD_ShowStringAndHz(60,210,40,16,16,"Good!",0,BLACK);	
-				else	
-					LCD_ShowStringAndHz(60,210,40,16,16,"Bad!",0,BLACK);
+				
 		}
 }
 

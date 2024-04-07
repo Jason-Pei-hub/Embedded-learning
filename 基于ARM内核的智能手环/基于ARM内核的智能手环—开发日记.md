@@ -1470,3 +1470,876 @@ int DHT11_GetVale()
 printf("hum = %dHM\r\ntem = %d°C\r\n",dht11.hum,(int)dht11.tem);
 ```
 
+# DAY6
+
+## 模拟量传感器
+
+模拟量传感器可以提供连续的输出信号，通过测量和转换物理量的变化来获取相关信息。其中包括：
+
+#### 光照传感器
+
+光照传感器常用于测量周围环境的光照强度。其特点包括：
+
+- 使用光敏电阻作为传感器元件。
+- 光敏电阻的阻值随着光照强度的增加而减小。
+- 通过测量电流或电压的变化来确定光照强度的大小。
+
+#### 空气质量传感器
+
+空气质量传感器用于检测周围空气中的污染物浓度，常见的包括二氧化碳、甲醛、颗粒物等。其特点包括：
+
+- 可以测量多种污染物。
+- 测量原理多样，通常基于化学反应或光学原理。
+
+![image-20240407191114309](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071911368.png)
+
+对应IO口 **模拟输入**
+
+## ADC（模数转换器）
+
+ADC是模数转换器的简称，它负责将模拟信号转换为数字信号。常见的ADC转换方法之一是逐次逼近法。
+
+### 逐次逼近法
+
+逐次逼近法是一种常见的ADC转换方法，其工作原理如下：
+
+1. **初始化**：首先，ADC将模拟输入信号的范围划分为若干个离散的电平。
+2. **比较**：ADC将一个参考电平与输入信号进行比较。
+3. **调整**：根据比较结果，ADC调整参考电平，使其更接近输入信号的值。
+4. **重复**：反复执行比较和调整步骤，逐渐逼近输入信号的准确值。
+5. **完成**：当参考电平与输入信号的差异足够小，ADC将得到一个近似于输入信号的数字输出值。
+
+### 特点
+
+- **高精度**：逐次逼近法可以提供较高的转换精度。
+- **适用性**：适用于需要高精度且转换速度较慢的应用场景。
+- **复杂度**：相对于其他转换方法，逐次逼近法的硬件和软件复杂度通常较高。
+
+逐次逼近法是ADC中常用的一种转换方法，它通过不断调整参考电平来逼近输入信号的准确值，从而实现模拟信号到数字信号的转换。
+
+
+
+查看技术参考手册：
+
+![image-20240407191451442](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071914486.png)
+
+#### ADC特点：
+
+- **数据位数和寄存器对齐**：12位ADC的转换结果会被放置在一个16位的寄存器中，右对齐表示高位填充0。
+- **单次和连续转换**：ADC可以进行单次转换，即只进行一次模拟信号到数字信号的转换。也可以进行连续转换，即连续地进行多次转换。
+- **扫描和间断模式**：ADC可以工作在扫描模式下，它可以按照事先定义好的顺序依次转换多个通道的模拟信号。间断模式下，ADC只进行单次转换。
+- **时钟频率限制**：ADC的时钟频率不能超过14MHz，这个限制保证了转换的准确性和稳定性。
+- **通道数量**：ADC具有18个通道，其中16个是外部通道，用于连接外部模拟信号源；另外2个是内部通道，用于测量芯片内部的参考电压等。
+
+![image-20240407191538166](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071919708.png)
+
+## 光照传感器
+
+- 引脚连接：
+  - 光照传感器的输出引脚（ILLU）连接到PA5引脚。
+- ADC通道：
+  - 光照传感器的模拟输出信号通过ADC进行转换。
+  - 连接到了ADC1或ADC2的IN5通道。
+
+
+
+## 光照传感器和ADC配置步骤
+
+1. **配置PA5引脚为模拟输入模式**：
+
+   ```C
+   Copy CodeExplain// 设置PA5引脚为模拟输入模式
+   GPIO_InitTypeDef GPIO_InitStruct;
+   GPIO_InitStruct.Pin = GPIO_PIN_5;
+   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+   ```
+
+2. **配置ADC模式**：
+
+   ```c
+   Copy CodeExplainADC_HandleTypeDef hadc;
+   // 配置ADC参数
+   hadc.Instance = ADC1; // 或者ADC2，根据实际情况选择
+   hadc.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+   hadc.Init.Resolution = ADC_RESOLUTION_12B;
+   hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+   hadc.Init.ScanConvMode = ADC_SCAN_DISABLE; // 禁用扫描模式
+   hadc.Init.ContinuousConvMode = DISABLE; // 选择单次转换模式
+   hadc.Init.DiscontinuousConvMode = DISABLE; // 禁用间断模式
+   hadc.Init.NbrOfConversion = 1; // 转换通道数量，此处为1
+   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START; // 软件触发转换
+   HAL_ADC_Init(&hadc);
+   ```
+
+3. **执行ADC自校准**：
+
+   ```C
+   Copy Code// 执行ADC自校准
+   HAL_ADCEx_Calibration_Start(&hadc);
+   ```
+
+
+
+### 完整代码：
+
+**adc2.c**
+
+```c
+#include "ADC2.h"
+
+void ADC2_Config()
+{
+	//PA5 ADC2 IN5
+	//配置IO口 模拟输入
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
+	
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AIN;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_5;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;	
+
+  GPIO_Init(GPIOA,&GPIO_InitStruct);
+	
+	//配置ADC2的时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2,ENABLE);
+	//时钟最大不超过14MHZ
+	RCC_ADCCLKConfig(RCC_PCLK2_Div6);//72/6 12MHZ
+	//配置模式
+	ADC_InitTypeDef ADC_InitStruct;
+	ADC_InitStruct.ADC_ContinuousConvMode = DISABLE;//单次转换
+	ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right;//右对齐
+	ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;//软件启动
+	ADC_InitStruct.ADC_Mode = ADC_Mode_Independent;//独立模式
+	ADC_InitStruct.ADC_NbrOfChannel = 1;//转换通道数目
+	ADC_InitStruct.ADC_ScanConvMode = DISABLE;//单通道
+	//初始化
+	ADC_Init(ADC2,&ADC_InitStruct);
+	
+	//使能
+	ADC_Cmd(ADC2,ENABLE);
+	
+	//校准
+	//充值校准器
+	ADC_ResetCalibration(ADC2);
+	while(ADC_GetResetCalibrationStatus(ADC2) == 1)//等待重置成功
+	{}
+	//开始校准
+	ADC_StartCalibration(ADC2);
+	while(ADC_GetCalibrationStatus(ADC2) == 1)//等待校准成功
+	{}
+}
+
+u16 illu;
+u16 mq;
+void ADC2_GetValue(void)
+{
+	//配置ADC通道
+	ADC_RegularChannelConfig(ADC2,ADC_Channel_5,1,ADC_SampleTime_55Cycles5);
+	
+	//开始转换
+	ADC_SoftwareStartConvCmd(ADC2,ENABLE);
+	while(ADC_GetFlagStatus(ADC2,ADC_FLAG_EOC) == 0)
+	{}
+	illu = ADC_GetConversionValue(ADC2);
+		printf("illu=%d\r\n",illu);
+		//配置ADC通道
+	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_55Cycles5);
+		//开始转换
+	ADC_SoftwareStartConvCmd(ADC2,ENABLE);
+		while(ADC_GetFlagStatus(ADC2,ADC_FLAG_EOC) == 0)
+	{}
+	mq = ADC_GetConversionValue(ADC2);
+		printf("mq=%d\r\n",mq);
+}
+```
+
+**adc2.h**
+
+```c
+#ifndef __ADC2_H
+#define __ADC2_H
+
+#include "main.h"
+
+void ADC2_Config();
+void ADC2_GetValue();
+
+extern u16 mq;
+extern u16 illu;
+
+#endif
+```
+
+# DAY7
+
+## RTC（实时时钟）
+
+### 什么是RTC？
+
+RTC是指实时时钟（Real-Time Clock），是一种能够持续跟踪时间的计时器，即使在设备断电的情况下也能保持时间的准确性。它通常用于需要准确时间记录的应用，比如计时器、日历、数据记录等。
+
+### RTC的工作原理
+
+RTC的核心部分是一个稳定的时钟源，它以一定的频率（比如32.768KHz）运行，并且不会因为设备断电而停止。RTC可以通过内部的计数器来记录经过的时间，从而实现持续跟踪时间的功能。
+
+![image-20240407192522838](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071925884.png)
+
+![image-20240407192529365](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071925404.png)
+
+由于标准库给了，所以我们简单看一下：
+
+## RTC配置和初始化
+
+```
+cCopy CodeExplain#include "rtc.h"
+
+// 声明RTC配置和初始化函数
+void RTC_Configuration(void);
+void Time_Adjust(void);
+uint32_t Time_Regulate(void);
+
+// 定义保存当前时间的结构体变量
+struct tm now_time;
+
+// RTC配置函数
+void RTC_Config(){
+    // 检查RTC是否已配置
+    if (BKP_ReadBackupRegister(BKP_DR1) != 0xA5A5)
+    {
+        // RTC未配置
+        printf("\r\n\n RTC not yet configured....");
+        // 进行RTC配置
+        RTC_Configuration();
+        printf("\r\n RTC configured....");
+        // 调整时间
+        Time_Adjust();
+        // 将配置标志写入备份寄存器
+        BKP_WriteBackupRegister(BKP_DR1, 0xA5A5);
+    }
+    else
+    {
+        // RTC已配置
+        // 检查复位标志位
+        if (RCC_GetFlagStatus(RCC_FLAG_PORRST) != RESET)
+        {
+            printf("\r\n\n Power On Reset occurred....");
+        }
+        else if (RCC_GetFlagStatus(RCC_FLAG_PINRST) != RESET)
+        {
+            printf("\r\n\n External Reset occurred....");
+        }
+        printf("\r\n No need to configure RTC....");
+        // 等待RTC寄存器同步
+        RTC_WaitForSynchro();
+        // 启用RTC秒中断
+        RTC_ITConfig(RTC_IT_SEC, ENABLE);
+        RTC_WaitForLastTask();
+    }
+}
+
+// RTC配置函数
+void RTC_Configuration(void)
+{
+    // 启用PWR和BKP时钟
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR | RCC_APB1Periph_BKP, ENABLE);
+    // 允许访问BKP域
+    PWR_BackupAccessCmd(ENABLE);
+    // 复位备份域
+    BKP_DeInit();
+    // 启用LSE
+    RCC_LSEConfig(RCC_LSE_ON);
+    // 等待LSE就绪
+    while (RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET)
+    {}
+    // 选择LSE作为RTC时钟源
+    RCC_RTCCLKConfig(RCC_RTCCLKSource_LSE);
+    // 启用RTC时钟
+    RCC_RTCCLKCmd(ENABLE);
+    RTC_WaitForSynchro();
+    RTC_WaitForLastTask();
+    RTC_ITConfig(RTC_IT_SEC, ENABLE);
+    RTC_WaitForLastTask();
+    RTC_SetPrescaler(32767); // RTC周期 = RTCCLK / RTC_PR = (32.768 KHz) / (32767 + 1)
+    RTC_WaitForLastTask();
+}
+
+// 获取当前时间的函数
+uint32_t Time_Regulate(void)
+{
+    // 设置当前时间
+    now_time.tm_year = 2024-1900;
+    now_time.tm_mon = 4-1;
+    now_time.tm_mday = 2;
+    now_time.tm_hour = 10;
+    now_time.tm_min = 13;
+    now_time.tm_sec = 0;
+    return mktime(&now_time);
+}
+
+// 调整时间的函数
+void Time_Adjust(void)
+{
+    RTC_WaitForLastTask();
+    RTC_SetCounter(Time_Regulate());
+    RTC_WaitForLastTask();
+}
+```
+
+接着我们通过数学函数画表盘
+
+![image-20240407193013096](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071940120.png)
+
+```c
+void showbiaopan(int hour,int min)
+{
+	  	
+    int sx1 = 0;
+    int sx2 = 0;
+    int sy1 = 0;
+    int sy2 = 0;
+				
+    int sx3 = 0;
+    int sx4 = 0;
+    int sy3 = 0;
+    int sy4 = 0;
+	
+    int mx1 = 0;
+    int mx2 = 0;
+    int my1 = 0;
+    int my2 = 0;
+
+    int mx3 = 0;
+    int mx4 = 0;
+    int my3 = 0;
+    int my4 = 0;
+
+    int hx1 = 0;
+    int hx2 = 0;
+    int hy1 = 0;
+    int hy2 = 0;
+
+    int hx3 = 0;
+    int hx4 = 0;
+    int hy3 = 0;
+    int hy4 = 0;
+		
+		
+		u32 time = 0;
+ 
+		
+		while(1)
+		{
+			switch(KEY_Check())
+			{
+			  case 1:
+					showyemian1(HOUR,MIN,CHOUR,CMIN);
+				case 2:
+					showyemian2();
+				case 3:
+					showyemian3(TSTEP);
+				case 4:
+					showyemian4();
+					
+					
+			}
+				
+				
+			BreatheLed();
+		  if(dj>=90000)
+		{
+			
+		dj = 0;
+    LCD_ShowPicture(0,0,240,320,(u8*)gImage_daiji);
+			
+		
+		time = RTC_GetCounter();
+    now_time = *localtime(&time);
+		
+	  now_time.tm_min += min;
+    now_time.tm_hour += hour;
+		
+			
+	  //
+		get_points_on_concentric_circles(120, 160,0,20,now_time.tm_sec%60+30, &sx3, &sy3, &sx4, &sy4);
+		LCD_DrawLine((uint16_t)sx3,(uint16_t)sy3,(uint16_t)sx4,(uint16_t)sy4,0);
+    get_points_on_concentric_circles(120, 160,0,117,now_time.tm_sec%60, &sx3, &sy3, &sx4, &sy4);
+		LCD_DrawLine((uint16_t)sx3,(uint16_t)sy3,(uint16_t)sx4,(uint16_t)sy4,0);
+		
+		//
+	  get_points_on_concentric_circles(120, 160,30,115,now_time.tm_min%60, &mx1, &my1, &mx2, &my2);
+    get_points_on_concentric_circles(120, 160,7,30,now_time.tm_min%60, &mx3, &my3, &mx4, &my4);
+
+    LCD_DrawLine((uint16_t)mx1,(uint16_t)my1,(uint16_t)mx2,(uint16_t)my2,2);
+		LCD_DrawLine((uint16_t)mx3,(uint16_t)my3,(uint16_t)mx4,(uint16_t)my4,0);
+		
+		//ʱ
+	  get_points_on_concentric_circles(120, 160,30,72,now_time.tm_hour%12*5+5*now_time.tm_min/60, &hx1, &hy1, &hx2, &hy2);
+    get_points_on_concentric_circles(120, 160,7,30,now_time.tm_hour%12*5+5*now_time.tm_min/60, &hx3, &hy3, &hx4, &hy4);
+
+    LCD_DrawLine((uint16_t)hx1,(uint16_t)hy1,(uint16_t)hx2,(uint16_t)hy2,3);
+		LCD_DrawLine((uint16_t)hx3,(uint16_t)hy3,(uint16_t)hx4,(uint16_t)hy4,1);
+
+		
+		
+		
+		}
+		}
+    
+}
+```
+
+实现效果:
+
+![46962c1939af2e79ca84a5089ac5bf5](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071940944.jpeg)
+
+# DAY08
+
+## 心率模块
+
+![image-20240407194431915](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951965.png)
+
+![image-20240407194435761](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951701.png)
+
+**输入模拟量**
+
+![image-20240407194455450](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951603.png)
+
+![image-20240407194501029](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071945052.png)
+
+## MPU6050
+
+![image-20240407194841391](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071948426.png)
+
+![image-20240407194846625](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071948655.png)
+
+![image-20240407194852514](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951501.png)
+
+**IIC**
+
+![image-20240407194906559](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951343.png)
+
+接线引脚：
+
+![image-20240407194916887](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071949916.png)
+
+![image-20240407194922977](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071951163.png)
+
+![image-20240407194927694](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404071949724.png)
+
+因为这两个模块官方都提供了详细的资料和源码，这里不再过多赘述
+
+# 非阻塞呼吸灯
+
+> 天才的时刻
+
+```c
+#define BreatheMax 280
+void BreatheLed(void)
+{
+	static unsigned char B_Reverse= 0;
+	static int Low_Time = 0;
+	static int tem = 0;
+
+	if(!B_Reverse)   //渐亮
+	{
+		tem++;					//该变量会从0~BreatheMax循环，代表PWM的周期
+		if(tem > BreatheMax)
+		{
+			tem = 0;
+			Low_Time++;  				//每BreatheMax * 10us自加1
+			if(Low_Time >= BreatheMax) //限制加到BreatheMax之后跳到渐灭
+			{
+				B_Reverse = 1;	
+			}
+		}	
+	}
+	else		//渐灭
+	{
+		tem++;
+		if(tem > BreatheMax)
+		{
+			tem = 0;
+			Low_Time--;		 //每BreatheMax * 10us自减1
+			if(Low_Time < 0) //限制减到0之后回到渐亮
+			{
+				B_Reverse = 0;
+			}
+		}	
+	}
+	/*
+	以渐亮为例：
+		函数是10us周期性调用
+						tem：	从0~BreatheMax循环递增
+		BreatheMax - Low_Time ：随着 Low_Time 的增加，因为BreatheMax是固定的，所以BreatheMax - Low_Time会减少
+		例如： Low_Time = 60；BreatheMax - Low_Time = 220，
+			则下列语句执行的效果就是：有220 * 10us 的时间语句条件不成立，执行 (LED0 = 1)
+									   60*10us  的时间语句条件成立，	 执行 (LED0 = 0)
+			灯是低电平点亮，由于高电平时间比低电平多，所以呈现灯较暗的现象，反之则亮
+	*/
+	(tem > BreatheMax - Low_Time)?(LED0 = 0):(LED0 = 1); //如果？前条件成立，执行(LED0 = 0)，否则执行(LED0 = 1)
+}
+```
+
+
+
+这段代码实现了一个呼吸灯效果，即LED的亮度在一定时间内逐渐增加或减小。
+
+```
+#define BreatheMax 280
+```
+
+这里定义了一个常量 `BreatheMax`，用于控制呼吸灯的周期长度。在这个例子中，周期长度为 280 个单位。
+
+```
+cCopy Codestatic unsigned char B_Reverse= 0;
+static int Low_Time = 0;
+static int tem = 0;
+```
+
+这里定义了三个静态变量 `B_Reverse`、`Low_Time` 和 `tem`，分别用于记录呼吸灯的当前状态、低电平持续时间和计时器。
+
+```
+Explainif(!B_Reverse)   //渐亮
+{
+    // 渐亮时的处理
+}
+else    //渐灭
+{
+    // 渐灭时的处理
+}
+```
+
+这段代码通过判断 `B_Reverse` 的值来确定当前是处于渐亮还是渐灭状态。如果 `B_Reverse` 的值为 0，则表示当前处于渐亮状态；如果为 1，则表示当前处于渐灭状态。
+
+```
+Explaintem++;                  
+if(tem > BreatheMax)
+{
+    tem = 0;
+    // 处理周期性操作
+}
+```
+
+在每次调用 `BreatheLed` 函数时，计时器 `tem` 会递增。当计时器值超过呼吸灯的周期长度 `BreatheMax` 时，计时器会重置为 0，并执行相应的周期性操作。
+
+```
+ExplainLow_Time++;             
+if(Low_Time >= BreatheMax) 
+{
+    B_Reverse = 1;   
+}
+```
+
+在渐亮状态下，低电平持续时间 `Low_Time` 会逐渐增加。当低电平持续时间达到呼吸灯的周期长度 `BreatheMax` 时，说明渐亮完成，需要切换到渐灭状态，此时将 `B_Reverse` 置为 1。
+
+```
+ExplainLow_Time--;     
+if(Low_Time < 0) 
+{
+    B_Reverse = 0;
+}
+```
+
+在渐灭状态下，低电平持续时间 `Low_Time` 会逐渐减小。当低电平持续时间减少到 0 时，说明渐灭完成，需要切换到渐亮状态，此时将 `B_Reverse` 置为 0。
+
+```
+(tem > BreatheMax - Low_Time)?(LED0 = 0):(LED0 = 1);
+```
+
+这行代码控制了 LED 的亮度，根据当前的低电平持续时间 `Low_Time` 和计时器 `tem` 的值来决定 LED 的亮灭状态。当 `(tem > BreatheMax - Low_Time)` 条件成立时，LED 熄灭；否则 LED 亮起。因此，在呼吸灯的渐亮过程中，LED 会变暗；在渐灭过程中，LED 会逐渐变亮。
+
+这样，通过调整低电平持续时间 `Low_Time` 和周期计时器 `tem` 的值，就可以实现 LED 的呼吸灯效果。
+
+
+
+稍加改动就可以实现流水呼吸灯的效果
+
+```c
+void BreatheLed(void)
+{
+    static int *p = NULL; // 声明为static变量，并初始化为NULL
+    static unsigned char B_Reverse= 0;
+    static int Low_Time = 0;
+    static int tem = 0;
+    static unsigned char isCycleComplete = 0; // 跟踪灯的周期是否完成
+
+    // 初始化 LED 为关闭状态
+    LED1_OFF;
+    LED2_OFF;
+    LED3_OFF;
+    LED4_OFF;
+
+    // 如果p为NULL，则将其指向一个全局变量，以便在函数调用之间保持其值
+    if (p == NULL) {
+        static int global_p = 0; // 全局变量用于保存p的值
+        p = &global_p;
+    }
+
+    if (!B_Reverse)   
+    {
+        tem++;                  
+        if (tem > BreatheMax)
+        {
+            tem = 0;
+            Low_Time++;             
+            if (Low_Time >= BreatheMax) 
+            {
+                B_Reverse = 1;   
+            }
+        }   
+    }
+    else        
+    {
+        tem++;
+        if (tem > BreatheMax)
+        {
+            tem = 0;
+            Low_Time--;         
+            if (Low_Time < 0) 
+            {
+                B_Reverse = 0;
+
+                // 当前灯的周期完成
+                isCycleComplete = 1;
+            }
+        }   
+    }
+
+    // 控制LED的呼吸效果
+    switch (*p)
+    {
+        case 0:
+            (tem > BreatheMax - Low_Time) ? LED1_OFF : LED1_ON; 
+            break;
+        case 1:
+            (tem > BreatheMax - Low_Time) ? LED2_OFF : LED2_ON; 
+            break;
+        case 2:
+            (tem > BreatheMax - Low_Time) ? LED3_OFF : LED3_ON; 
+            break;
+        case 3:
+            (tem > BreatheMax - Low_Time) ? LED4_OFF : LED4_ON; 
+            break;
+        case 4:
+            (tem > BreatheMax - Low_Time) ? LED3_OFF : LED3_ON; 
+            break;
+        case 5:
+            (tem > BreatheMax - Low_Time) ? LED2_OFF : LED2_ON; 
+            break;
+        default:
+            break;
+    }
+
+    // 更新p的值
+    if (isCycleComplete) {
+        *p = (*p + 1) % 6; // 切换到下一个灯
+        isCycleComplete = 0; // 重置周期完成状态
+    }
+}
+```
+
+### 静态变量说明：
+
+1. `p`：指向一个整型变量的指针。使用静态变量来保存其状态，以确保在函数调用之间保持其值。初始值为 `NULL`。
+2. `B_Reverse`：用于标记呼吸灯的状态，0表示逐渐亮起，1表示逐渐变暗。
+3. `Low_Time`：记录灯亮或暗的时间。
+4. `tem`：用于计时，记录每次递增或递减的次数。
+5. `isCycleComplete`：用于跟踪灯的周期是否完成。
+
+### 函数主体：
+
+1. 首先将所有 LED 关闭。
+2. 如果 `p` 为 `NULL`，则将其指向一个全局变量，以便在函数调用之间保持其值。
+3. 根据呼吸灯的状态逐渐调整 `Low_Time` 的值，当达到最大值或最小值时改变 `B_Reverse` 的状态，并标记当前周期完成。
+4. 根据 `p` 的值控制相应的 LED 亮或暗。
+5. 如果当前周期完成，则切换到下一个 LED。
+
+### LED 控制说明：
+
+- LED1-LED4 分别与整型变量 `p` 的值相对应，用于指示不同的灯。
+- 当 `tem` 大于 `BreatheMax - Low_Time` 时，表示灯应该处于暗的状态，否则处于亮的状态。
+
+### 备注：
+
+- `BreatheMax` 为一个预定义的常量，表示呼吸灯的最大周期。
+
+总的来说，该函数通过调整灯的亮度来实现 LED 的呼吸效果，并在每个周期完成时切换到下一个 LED，以实现循环呼吸的效果。
+
+
+
+# 按键切换
+
+```c
+uint8_t KEY_Check(void)
+{
+    static uint8_t key_status[4] = {1, 1, 1, 1}; 
+    static uint8_t key_count[4] = {0};
+    uint8_t i;
+    uint8_t key_press[4] = {0};
+
+    // 检测按键状态变化
+    for (i = 0; i < 4; i++)
+    {
+        switch (i)
+        {
+        case 0:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
+            break;
+        case 1:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_4);
+            break;
+        case 2:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_5);
+            break;
+        case 3:
+            key_press[i] = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_6);
+            break;
+        }
+
+        if (key_press[i] != key_status[i])
+        {
+            key_count[i]++;
+            if (key_count[i] >= check_count) // 修改此处，移除类型转换
+            {
+                key_status[i] = key_press[i];
+                key_count[i] = 0;
+            }
+
+            if (key_press[i] == 0)
+            {
+                if (i == 0) // 如果按下的是按钮1
+                {
+                    if (key_count[i] >= long_press_count) // 判断是否长按
+                    {
+                        return 5; // 长按返回5
+                    }
+                    else
+                    {
+                        return i + 1; // 否则按照原逻辑返回1
+                    }
+                }
+                else
+                {
+                    return i + 1; // 其他按钮按照原逻辑返回对应编号
+                }
+            }
+        }
+    }
+
+    return 0; 
+}
+```
+
+### 静态变量说明：
+
+1. `key_status`：保存每个按键的状态，初始值为1，表示按键未按下。
+2. `key_count`：保存每个按键按下的次数。
+3. `key_press`：保存每个按键的按下状态，0表示按下，1表示未按下。
+
+### 函数主体：
+
+1. 对每个按键进行状态检测，并将结果保存在 `key_press` 数组中。
+
+2. 如果 `key_press[i]` 与 `key_status[i]` 不相等，表示按键状态发生了变化。
+
+3. 将相应按键计数器 `key_count[i]` 递增。
+
+4. 如果按键计数器大于等于指定的检测次数（`check_count`），则更新按键状态并重置计数器。
+
+5. 如果按键按下（
+
+   ```
+   key_press[i] == 0
+   ```
+
+   ）：
+
+   - 如果是按钮1（`i == 0`），判断按键计数器是否达到长按次数（`long_press_count`）。如果达到，则返回5表示长按，否则按照原逻辑返回1。
+   - 如果是其他按钮，按照原逻辑返回对应的编号。
+
+6. 如果没有按键按下，返回0表示无按键按下。
+
+### 主要功能：
+
+这个函数的主要作用是检查四个按键（按钮1到按钮4）是否被按下，并确定按键的状态，包括单击和长按。
+
+### 重要变量：
+
+- `key_status`：保存每个按键的状态，1表示按键未按下，0表示按键被按下。
+- `key_count`：记录每个按键按下的次数，用于判断是否长按。
+- `key_press`：保存每个按键当前的按下状态，用于和上一次的状态比较。
+
+### 检测按键状态：
+
+- 对于每个按键，函数检测其当前状态是否和上一次的状态不同。
+- 如果状态发生变化，就开始计数，统计按键被按下的次数。
+
+### 判断按键事件：
+
+- 如果按键被按下（
+
+  ```
+  key_press[i] == 0
+  ```
+
+  ）：
+
+  - 如果是按钮1，判断按下时间是否超过了设定的长按时间，如果是则返回5，表示长按；否则返回1，表示短按。
+  - 如果是其他按钮，直接返回对应的按钮编号。
+
+- 如果没有按键被按下，返回0。
+
+# 项目结果展示
+
+## 待机页面
+
+* 有开场动画
+
+* 所有页面无操作20s自动返回待机页面
+
+![46962c1939af2e79ca84a5089ac5bf5](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404072002288.jpg)
+
+# 主页
+
+* 展示时间和温度
+* 到达预定时间蜂鸣器响起，按键后关闭
+
+![image-20240407200319470](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404072015174.png)
+
+# 心率页面
+
+* 可以绘制心率心电图
+* 显示当前的心率和相邻两次脉搏的时间间隔
+* 可以根据心率范围给出提示
+
+![image-20240407200518276](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404072015984.png)
+
+# 计步页面
+
+* 记录目前步数
+* 记录行进距离
+* 记录目标步数进度条
+* 完成目标后提示
+
+![1e768de940beb4b0b394db37096ed0e](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404072006894.jpg)
+
+# 环境监测页面
+
+* 实时监测温度
+* 实时监测湿度
+* 实时监测空气质量
+* 实时监测光照强度
+* 给出相关的反馈
+
+![1e768de940beb4b0b394db37096ed0e](https://gitee.com/jason_pei/typora-bed/raw/master/image/202404072015046.jpeg)
+
+
+
+
+
+
+
+## 源码地址：[基于ARM内核的智能手环/项目文件/STM32 · Jason Pei/嵌入式学习历程（项目） - 码云 - 开源中国 (gitee.com)](https://gitee.com/jason_pei/embedded-systems-learning/tree/master/基于ARM内核的智能手环/项目文件/STM32)
+
+## 相关文件：[基于ARM内核的智能手环 · Jason Pei/嵌入式学习历程（项目） - 码云 - 开源中国 (gitee.com)](https://gitee.com/jason_pei/embedded-systems-learning/tree/master/基于ARM内核的智能手环)

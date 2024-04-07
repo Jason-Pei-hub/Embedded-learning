@@ -1,5 +1,6 @@
 #include "key.h"
 #define check_count 5
+#define long_press_count 10 
 
 void KEY_Config()
 {
@@ -28,7 +29,7 @@ void KEY_Config()
 uint8_t KEY_Check(void)
 {
     static uint8_t key_status[4] = {1, 1, 1, 1}; 
-		static uint8_t key_count[4] = {0};
+    static uint8_t key_count[4] = {0};
     uint8_t i;
     uint8_t key_press[4] = {0};
 
@@ -51,19 +52,32 @@ uint8_t KEY_Check(void)
             break;
         }
 
-       
         if (key_press[i] != key_status[i])
         {
-             key_count[i]++;
-					if(key_count >=(u8 *) check_count)
-					{
-            key_status[i] = key_press[i];
-						key_count[i] =0;
-					}
-               
+            key_count[i]++;
+            if (key_count[i] >= check_count) // 修改此处，移除类型转换
+            {
+                key_status[i] = key_press[i];
+                key_count[i] = 0;
+            }
+
             if (key_press[i] == 0)
             {
-                return i + 1; 
+                if (i == 0) // 如果按下的是按钮1
+                {
+                    if (key_count[i] >= long_press_count) // 判断是否长按
+                    {
+                        return 5; // 长按返回5
+                    }
+                    else
+                    {
+                        return i + 1; // 否则按照原逻辑返回1
+                    }
+                }
+                else
+                {
+                    return i + 1; // 其他按钮按照原逻辑返回对应编号
+                }
             }
         }
     }

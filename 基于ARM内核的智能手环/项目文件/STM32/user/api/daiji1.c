@@ -11,13 +11,13 @@ void DaiJi()
 	
 	LCD_Clear(0X00);	
 	
-	for(r = 0; r <142;r++)
+	for(r = 0; r <200;r++)//142
 	{
 	  LCD_Draw_Circle(120,160,r,0xFC89);
 		Delay_us(4000-r*20);
 	}
 
-	for(r = 0; r <135;r++)                                      
+	for(r = 0; r <200;r++) //135                                     
 	{
 	  LCD_Draw_Circle(120,160,r,0X0000);
 		Delay_us(4000-r*20);

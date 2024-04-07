@@ -24,11 +24,12 @@
 #include "StepCount.h"
 #include "daiji1.h"  
 
-extern const unsigned char gImage_daiji[153600];
+//extern const unsigned char gImage_daiji[153600];
 extern const unsigned char gImage_zhuye[153600];
-extern const unsigned char gImage_ymxl[153600];
-extern const unsigned char gImage_ymyd[153600];
+extern const unsigned char gImage_ymxl[2048] ;
+extern const unsigned char gImage_ymyd[23520];
 extern const unsigned char gImage_ymwd[153600];
+
 
 void BreatheLed(void);
 

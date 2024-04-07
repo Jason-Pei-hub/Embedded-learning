@@ -1,4 +1,5 @@
 #include "biaopan1.h"
+
 #define BreatheMax 280
 #define HOUR 17
 #define MIN 55
@@ -9,7 +10,12 @@
 
 void showbiaopan(int hour,int min)
 {
-	  	
+	  int r = 0;
+	int x1 = 0;
+	int y1 = 0;
+	int x2 = 0;
+	int y2 = 0;
+	
     int sx1 = 0;
     int sx2 = 0;
     int sy1 = 0;
@@ -48,26 +54,50 @@ void showbiaopan(int hour,int min)
 		{
 			switch(KEY_Check())
 			{
-			  case 1:
+				case 5:
 					showyemian1(HOUR,MIN,CHOUR,CMIN);
 				case 2:
 					showyemian2();
 				case 3:
-					showyemian3(TSTEP);
+					showyemian3(100);
 				case 4:
 					showyemian4();
-					
-					
+				
 			}
 				
-				
 			BreatheLed();
-		  if(dj>=90000)
+		  if(dj>=900)
 		{
 			
 		dj = 0;
-    LCD_ShowPicture(0,0,240,320,(u8*)gImage_daiji);
-			
+//    LCD_ShowPicture(0,0,240,320,(u8*)gImage_daiji);
+		LCD_Clear(0X00);
+//	  for(r = 135; r <142;r++)
+//	{
+//	  LCD_Draw_Circle(120,160,r,0xFC89);
+//	
+//	}
+
+
+	
+	for(r = 1;r<=12;r++)
+	{
+	  get_points_on_concentric_circles(120, 160,100,115,r*5-5, &x1, &y1, &x2, &y2);
+	  LCD_DrawLine((uint16_t)x1,(uint16_t)y1,(uint16_t)x2,(uint16_t)y2,2);
+		
+	}
+
+  for(r = 0; r <6;r++)
+	{
+	  LCD_Draw_Circle(120,160,r,0xFFFF);
+		
+	}
+	
+	for(r = 0; r <5;r++)
+	{
+	  LCD_Draw_Circle(120,160,r,0x0000);
+		
+	}
 		
 		time = RTC_GetCounter();
     now_time = *localtime(&time);
@@ -95,9 +125,6 @@ void showbiaopan(int hour,int min)
 
     LCD_DrawLine((uint16_t)hx1,(uint16_t)hy1,(uint16_t)hx2,(uint16_t)hy2,3);
 		LCD_DrawLine((uint16_t)hx3,(uint16_t)hy3,(uint16_t)hx4,(uint16_t)hy4,1);
-
-		
-		
 		
 		}
 		}

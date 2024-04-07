@@ -12,12 +12,7 @@
 #define LED4_ON GPIO_WriteBit(GPIOE,GPIO_Pin_5,Bit_RESET)
 #define LED4_OFF GPIO_WriteBit(GPIOE,GPIO_Pin_5,Bit_SET)
 
-#define LEDR_ON GPIO_WriteBit(GPIOA,GPIO_Pin_6,Bit_RESET)
-#define LEDR_OFF GPIO_WriteBit(GPIOA,GPIO_Pin_6,Bit_SET)
-#define LEDG_ON GPIO_WriteBit(GPIOA,GPIO_Pin_7,Bit_RESET)
-#define LEDG_OFF GPIO_WriteBit(GPIOA,GPIO_Pin_7,Bit_SET)
-#define LEDB_ON GPIO_WriteBit(GPIOA,GPIO_Pin_8,Bit_RESET)
-#define LEDB_OFF GPIO_WriteBit(GPIOA,GPIO_Pin_8,Bit_SET)
+
 
 #define LED1_TURN GPIOE->ODR ^=0x1<<2
 #define LED2_TURN GPIOE->ODR ^=0x1<<3
@@ -28,6 +23,6 @@
 
 //函数的外部声明
 void LED_Config(void);
-void RGB_Config(void);
+
 
 #endif
